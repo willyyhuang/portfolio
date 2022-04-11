@@ -7,18 +7,17 @@ import styled from 'styled-components'
 import pewf from '../assets/pewf.png'
 
 const StyledHeader = styled(Grid)`
-  padding: 6em 0px 6em 0px;
+  padding: 5vh 0px 5vh 0px;
   text-align: center;
 `
 
-const StyledContent = styled(Grid)`
-  min-height: 60vw;
+const StyledContent = styled.div`
+  width: 60%;
   margin: 0px auto 0px auto;
-  overflow-y: auto;
 `
 
 const LayoutWrapper = styled.div`
-  min-height: 100vh;
+  min-height: 90vh;
 `
 
 type LayoutProps = {
@@ -37,8 +36,8 @@ const Layout = ({children}: LayoutProps) => (
         </Link>
       </Grid>
       <Grid item xs={1} justifyContent='center' container>
-        <Link href='/About'>
-          <Button>About</Button>
+        <Link href='/Project'>
+          <Button>Project</Button>
         </Link>
       </Grid>
       <Grid item xs={1} justifyContent='center' container>
@@ -46,15 +45,13 @@ const Layout = ({children}: LayoutProps) => (
           <Button>Contact</Button>
         </Link>
       </Grid>
-      <Grid item xs={1} justifyContent='center' container>
-        <Link href='/Blog'>
-          <Button>Blog</Button>
-        </Link>
-      </Grid>
+      {/* <Grid item xs={1} justifyContent='center' container> */}
+      {/* <Link href='/Blog'> */}
+      {/* <Button>Blog</Button> */}
+      {/* </Link> */}
+      {/* </Grid> */}
     </StyledHeader>
-    <StyledContent container justifyContent='center'>
-      {children}
-    </StyledContent>
+    <StyledContent>{children}</StyledContent>
   </LayoutWrapper>
 )
 
