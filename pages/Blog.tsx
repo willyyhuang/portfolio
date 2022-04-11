@@ -1,10 +1,10 @@
 import {Typography} from '@mui/material'
 
-const Home = () => (
+const Blog = () => (
   <div>
     <Typography color='primary'>hello jeff</Typography>
   </div>
 )
 
-Home.displayName = 'Home'
-export default Home
+Blog.displayName = 'Blog'
+export default Blog
