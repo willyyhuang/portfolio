@@ -8,30 +8,29 @@
   },
   "overrides": [
     {
-      "files": ["**/*.d.ts"],
+      "files": ["**/*.ts", "**/*.tsx"],
       "parser": "@typescript-eslint/parser",
       "plugins": ["@typescript-eslint"]
     }
   ],
-  "parser": "@babel/eslint-parser",
-  "parserOptions": {
-    "ecmaVersion": 12,
-    "parser": "@babel/eslint-parser",
-    "requireConfigFile": false,
-    "sourceType": "module"
-  },
   "env": {
     "browser": true,
     "es6": true,
     "node": true,
     "jest": true
   },
-  "extends": ["airbnb", "prettier", "plugin:cypress/recommended", "next/core-web-vitals"],
+  "extends": [
+    "airbnb",
+    "prettier",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
-  "plugins": ["prettier", "cypress", "simple-import-sort"],
+  "parser": "@babel/eslint-parser",
+  "plugins": ["prettier", "simple-import-sort", "@typescript-eslint"],
   "rules": {
     "simple-import-sort/imports": "warn",
     "simple-import-sort/exports": "warn",
@@ -145,6 +144,9 @@
     "semi-style": ["error", "last"],
     "camelcase": "off",
     "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react/function-component-definition": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"]
   }
 }
