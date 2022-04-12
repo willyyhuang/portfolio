@@ -4,10 +4,7 @@ import WorkIcon from '@mui/icons-material/Work'
 import {Grid, Link, List, ListItem, ListItemAvatar, ListItemText, Typography} from '@mui/material'
 import Image from 'next/image'
 
-import bstkLogo from '../assets/bstkLogo.png'
-import cyclioLogo from '../assets/cyclio.png'
-import sessionTomeLogo from '../assets/sessionTomeLogo.png'
-
+// TODO: move these to a DB or something
 const projects = [
   {
     title: 'Building Stack',
@@ -15,7 +12,7 @@ const projects = [
     description:
       'Building Stack is a cloud-based property management software designed to help Canadian building owners get the most out of their real estate portfolio',
     techStack: 'React, Typescript, Redux, Azure, Ant Design',
-    logo: bstkLogo,
+    logo: '/bstkLogo.png',
     role: 'Front-end Developer',
     dimensions: {
       width: '300',
@@ -28,7 +25,7 @@ const projects = [
     description:
       'A web application for managing Dungeons and Dragons Adventurer League Characters.',
     techStack: 'React, Typescript, GitHub, Laravel, AWS, MaterialUI',
-    logo: sessionTomeLogo,
+    logo: '/sessionTomeLogo.png',
     dimensions: {
       width: '900',
       height: '200',
@@ -41,7 +38,7 @@ const projects = [
     description:
       'A web-based ERP system for managing the production and sale of imaginary bikes, to imaginary people.',
     techStack: 'React, Typescript, GitHub, Laravel, Ant Design',
-    logo: cyclioLogo,
+    logo: '/cyclio.png',
     dimensions: {
       width: '500',
       height: '200',
@@ -55,7 +52,7 @@ type ProjectData = {
   link: string
   description: string
   techStack: string
-  logo: any
+  logo: string
   role?: string
   dimensions: {
     width: string
@@ -107,7 +104,7 @@ const Project = () => {
   )
 
   return (
-    <Grid container justifyContent='center'>
+    <>
       <Grid item xs={12} container justifyContent='center'>
         <Typography variant='h4'>Projects and work experience</Typography>
       </Grid>
@@ -119,15 +116,15 @@ const Project = () => {
           spacing={4}
           key={project.title}
           style={{margin: '16px 0px 16px 0px'}}>
-          <Grid item container xs={6} justifyContent='end'>
+          <Grid item container xs={12} md={6} justifyContent='end'>
             {index % 2 === 0 ? getLogo(project) : getDescription(project)}
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             {index % 2 === 0 ? getDescription(project) : getLogo(project)}
           </Grid>
         </Grid>
       ))}
-    </Grid>
+    </>
   )
 }
 

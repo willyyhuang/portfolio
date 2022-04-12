@@ -1,9 +1,7 @@
-import {Typography} from '@mui/material'
-
 const Contact = () => (
-  <div>
-    <Typography color='primary'>hello jeff</Typography>
-  </div>
+  <Grid item xs={12} md={6}>
+    placeholder
+  </Grid>
 )
 
 Contact.displayName = 'Contact'
