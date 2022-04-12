@@ -1,15 +1,18 @@
+import ArticleIcon from '@mui/icons-material/Article'
 import ContactPageIcon from '@mui/icons-material/ContactPage'
 import EmailIcon from '@mui/icons-material/Email'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import PersonIcon from '@mui/icons-material/Person'
-import TaskIcon from '@mui/icons-material/Task'
+import ShuffleIcon from '@mui/icons-material/Shuffle'
 import {Button, Grid, Link as MuiLink} from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
 import {ReactNode} from 'react'
 import styled from 'styled-components'
+
+import {password} from '../utils/constant'
 
 const StyledHeader = styled(Grid)`
   padding: 5vh 0px 5vh 0px;
@@ -40,54 +43,73 @@ type LayoutProps = {
   children: ReactNode
 }
 
-const Layout = ({children}: LayoutProps) => (
-  <LayoutWrapper>
-    <StyledHeader container justifyContent='center'>
-      <Grid item xs={12} md={4}>
-        <Image src='/pewf.png' width='100' height='100' />
-      </Grid>
-      <Grid item xs={12} md={1} justifyContent='center' container>
-        <Link href='/'>
-          <Button startIcon={<PersonIcon />}>About</Button>
-        </Link>
-      </Grid>
-      <Grid item xs={12} md={1} justifyContent='center' container>
-        <Link href='/Projects'>
-          <Button startIcon={<TaskIcon />}>Projects</Button>
-        </Link>
-      </Grid>
-      <Grid item xs={12} md={1} justifyContent='center' container>
-        <Link href='/Contact'>
-          <Button startIcon={<ContactPageIcon />}>Contact</Button>
-        </Link>
-      </Grid>
-    </StyledHeader>
-    <StyledContent>
-      <Grid container justifyContent='center'>
-        {children}
-      </Grid>
-    </StyledContent>
-    <StyledFooter>
-      <Grid item xs={12} container justifyContent='center'>
-        <IconLink href='https://www.linkedin.com/in/wlsun/' target='_blank'>
-          <LinkedInIcon />
-        </IconLink>
-        <IconLink href='https://www.instagram.com/_wlsun/' target='_blank'>
-          <InstagramIcon />
-        </IconLink>
-        <IconLink href='https://github.com/willyyhuang' target='_blank'>
-          <GitHubIcon />
-        </IconLink>
-        <IconLink href='mailto:wh.dev@icloud.com'>
-          <EmailIcon />
-        </IconLink>
-        <IconLink href='https://ko-fi.com/F1F1AJCDR' target='_blank'>
-          <Image height='24' width='24' src='/kofi.png' />
-        </IconLink>
-      </Grid>
-    </StyledFooter>
-  </LayoutWrapper>
-)
+const Layout = ({children}: LayoutProps) => {
+  const hexEncode = () =>
+    password
+      .split('')
+      .map((char: string) => char.charCodeAt(0).toString(16))
+      .join('')
+
+  return (
+    <LayoutWrapper>
+      <StyledHeader container justifyContent='center'>
+        <Grid item xs={12} md={4}>
+          <Image
+            src='/logo.png'
+            width='100'
+            height='100'
+            onClick={() => navigator.clipboard.writeText(hexEncode())}
+            style={{cursor: 'pointer'}}
+          />
+        </Grid>
+        <Grid item xs={12} md={1} justifyContent='center' container>
+          <Link href='/'>
+            <Button startIcon={<PersonIcon />}>About</Button>
+          </Link>
+        </Grid>
+        <Grid item xs={12} md={1} justifyContent='center' container>
+          <Link href='/Projects'>
+            <Button startIcon={<ArticleIcon />}>Projects</Button>
+          </Link>
+        </Grid>
+        <Grid item xs={12} md={1} justifyContent='center' container>
+          <Link href='/Miscellaneous'>
+            <Button startIcon={<ShuffleIcon />}>Miscellaneous</Button>
+          </Link>
+        </Grid>
+        <Grid item xs={12} md={1} justifyContent='center' container>
+          <Link href='/Contact'>
+            <Button startIcon={<ContactPageIcon />}>Contact</Button>
+          </Link>
+        </Grid>
+      </StyledHeader>
+      <StyledContent>
+        <Grid container justifyContent='center'>
+          {children}
+        </Grid>
+      </StyledContent>
+      <StyledFooter>
+        <Grid item xs={12} container justifyContent='center'>
+          <IconLink href='https://www.linkedin.com/in/wlsun/' target='_blank'>
+            <LinkedInIcon />
+          </IconLink>
+          <IconLink href='https://www.instagram.com/_wlsun/' target='_blank'>
+            <InstagramIcon />
+          </IconLink>
+          <IconLink href='https://github.com/willyyhuang' target='_blank'>
+            <GitHubIcon />
+          </IconLink>
+          <IconLink href='mailto:wh.dev@icloud.com'>
+            <EmailIcon />
+          </IconLink>
+          <IconLink href='https://ko-fi.com/F1F1AJCDR' target='_blank'>
+            <Image height='24' width='24' src='/kofi.png' />
+          </IconLink>
+        </Grid>
+      </StyledFooter>
+    </LayoutWrapper>
+  )
+}
 
 Layout.displayName = 'Layout'
 export default Layout
