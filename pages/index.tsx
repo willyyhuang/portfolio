@@ -89,8 +89,8 @@ const About = () => (
       </Grid>
       <Grid item xs={6} style={{alignSelf: 'center'}}>
         <Typography>
-          I enjoy watching korean dramas and animes when I am not coding, traveling, collecting
-          fragrance and playing video games are also my favorite pastimes.
+          I enjoy watching korean dramas and animes when I am not coding. Traveling, collecting
+          fragrance, building small hardware and playing video games are also my favorite hobbies.
         </Typography>
       </Grid>
       <Grid item xs={6}>
@@ -101,7 +101,11 @@ const About = () => (
       <Grid item container xs={6} justifyContent='end'>
         <List>
           <ListItem>
-            <ListItemText>Currently learning</ListItemText>
+            <ListItemText>
+              <Typography style={{fontSize: '150%', fontWeight: 500}}>
+                Currently learning
+              </Typography>
+            </ListItemText>
           </ListItem>
           {learnings.map((skill) => (
             <ListItem>
@@ -117,7 +121,9 @@ const About = () => (
       <Grid item xs={5}>
         <List>
           <ListItem>
-            <ListItemText>Skills</ListItemText>
+            <ListItemText>
+              <Typography style={{fontSize: '150%', fontWeight: 500}}>Skills</Typography>
+            </ListItemText>
           </ListItem>
           {skills.map((skill) => (
             <ListItem>
