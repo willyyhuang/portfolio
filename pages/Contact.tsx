@@ -1,8 +1,4 @@
-const Contact = () => (
-  <Grid item xs={12} md={6}>
-    placeholder
-  </Grid>
-)
+const Contact = () => <>placeholder</>
 
 Contact.displayName = 'Contact'
 export default Contact

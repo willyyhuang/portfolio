@@ -11,8 +11,6 @@ import Link from 'next/link'
 import {ReactNode} from 'react'
 import styled from 'styled-components'
 
-import pewf from '../assets/pewf.png'
-
 const StyledHeader = styled(Grid)`
   padding: 5vh 0px 5vh 0px;
   text-align: center;
@@ -46,7 +44,7 @@ const Layout = ({children}: LayoutProps) => (
   <LayoutWrapper>
     <StyledHeader container justifyContent='center'>
       <Grid item xs={12} md={4}>
-        <Image src={pewf} width='100' height='100' />
+        <Image src='/pewf.png' width='100' height='100' />
       </Grid>
       <Grid item xs={12} md={1} justifyContent='center' container>
         <Link href='/'>
@@ -83,13 +81,9 @@ const Layout = ({children}: LayoutProps) => (
         <IconLink href='mailto:wh.dev@icloud.com'>
           <EmailIcon />
         </IconLink>
-        <a href='https://ko-fi.com/F1F1AJCDR' target='_blank' rel='noreferrer'>
-          <img
-            height='24'
-            src='https://cdn.ko-fi.com/cdn/kofi2.png?v=3'
-            alt='Buy Me a Coffee at ko-fi.com'
-          />
-        </a>
+        <IconLink href='https://ko-fi.com/F1F1AJCDR' target='_blank'>
+          <Image height='24' width='24' src='/kofi.png' />
+        </IconLink>
       </Grid>
     </StyledFooter>
   </LayoutWrapper>
