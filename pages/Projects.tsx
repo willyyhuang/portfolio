@@ -3,9 +3,28 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import WorkIcon from '@mui/icons-material/Work'
 import {Grid, Link, List, ListItem, ListItemAvatar, ListItemText, Typography} from '@mui/material'
 import Image from 'next/image'
+import styled from 'styled-components'
+
+const Row = styled(Grid)`
+  padding: 32px 0px 32px 0px;
+`
+
+type ProjectData = {
+  title: string
+  link: string
+  description: string
+  techStack: string
+  logo: string
+  role?: string
+  dimensions: {
+    width: string
+    height: string
+  }
+  github?: string
+}
 
 // TODO: move these to a DB or something
-const projects = [
+const projects: ProjectData[] = [
   {
     title: 'Building Stack',
     link: 'https://www.buildingstack.com/',
@@ -47,19 +66,31 @@ const projects = [
   },
 ]
 
-type ProjectData = {
-  title: string
-  link: string
-  description: string
-  techStack: string
-  logo: string
-  role?: string
-  dimensions: {
-    width: string
-    height: string
-  }
-  github?: string
-}
+const otherProjects: Omit<ProjectData, 'logo' | 'role' | 'dimensions' | 'link'>[] = [
+  {
+    title: 'octave-control-function-gui',
+    description: 'Simple GUI for control system plotting.',
+    techStack: 'Python, octave, matlab, Tkinter',
+    github: 'https://github.com/willyyhuang/soen-385',
+  },
+  {
+    title: 'ttv-earning',
+    description: 'Simple data table website to view leaked Twitch earning data.',
+    techStack: 'Typescript, React, MaterialUI',
+    github: 'https://github.com/willyyhuang/ttvEarning',
+  },
+  {
+    title: 'dog-breed-vision-classifier',
+    description: 'Pytorch neural network training to predict dog breeds',
+    techStack: 'Python, Pytorch, opencv, numpy',
+  },
+  {
+    title: 'tic-tac-toe-like-game',
+    description: 'Tic-tac-toe like game to study heuristic evaluation in AI',
+    techStack: 'Python, numpy',
+    github: 'https://github.com/bcobo341/COMP472_Project_2',
+  },
+]
 
 const Project = () => {
   const getLogo = (project: ProjectData) => (
@@ -69,7 +100,7 @@ const Project = () => {
   const getDescription = (project: ProjectData) => (
     <List>
       <ListItem>
-        <Link variant='h4' href={project.link} underline='none'>
+        <Link variant='h4' href={project.link} style={{fontWeight: 600}} underline='none'>
           {project.title}
         </Link>
       </ListItem>
@@ -105,25 +136,48 @@ const Project = () => {
 
   return (
     <>
-      <Grid item xs={12} container justifyContent='center'>
-        <Typography variant='h4'>Projects and work experience</Typography>
-      </Grid>
+      <Row item xs={12} container justifyContent='center'>
+        <Typography variant='h4' style={{fontWeight: 600}}>
+          Projects and work experience
+        </Typography>
+      </Row>
       {projects.map((project, index) => (
-        <Grid
-          container
-          item
-          xs={12}
-          spacing={4}
-          key={project.title}
-          style={{margin: '16px 0px 16px 0px'}}>
+        <Row container item xs={12} spacing={4} key={project.title}>
           <Grid item container xs={12} md={6} justifyContent='end'>
             {index % 2 === 0 ? getLogo(project) : getDescription(project)}
           </Grid>
           <Grid item xs={12} md={6}>
             {index % 2 === 0 ? getDescription(project) : getLogo(project)}
           </Grid>
-        </Grid>
+        </Row>
       ))}
+      <Row item xs={12} container justifyContent='center'>
+        <Typography variant='h4' style={{fontWeight: 600}}>
+          Other projects
+        </Typography>
+      </Row>
+      <Row container>
+        {otherProjects.map((project) => (
+          <Grid
+            container
+            item
+            xs={12}
+            style={{border: '2px solid', padding: 16, marginBottom: 24, boxShadow: '5px 5px'}}>
+            <Grid item xs={12}>
+              <Link href={project?.github} underline='none'>
+                {project?.github && <GitHubIcon fontSize='small' style={{marginRight: 6}} />}
+                {project.title}
+              </Link>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant='caption'>{project.description}</Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant='caption'>{project.techStack}</Typography>
+            </Grid>
+          </Grid>
+        ))}
+      </Row>
     </>
   )
 }

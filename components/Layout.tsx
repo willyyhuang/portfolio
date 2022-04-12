@@ -18,10 +18,10 @@ const StyledHeader = styled(Grid)`
 
 const StyledContent = styled.div`
   @media only screen and (max-width: 768px) {
-    width: 100%;
+    width: 90%;
   }
   width: 60%;
-  margin: 0px auto 0px auto;
+  margin: 32px auto 0px auto;
 `
 
 const LayoutWrapper = styled.div`

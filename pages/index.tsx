@@ -43,12 +43,20 @@ const skills: SkillData[] = [
     name: 'Storybook.js',
     logo: '/storybookLogo.png',
   },
+  {
+    name: 'Cypress',
+    logo: '/cypressLogo.png',
+  },
 ]
 
 const learnings: SkillData[] = [
   {
     name: 'Next.js',
     logo: '/nextjsLogo.png',
+  },
+  {
+    name: 'Docker',
+    logo: '/dockerLogo.png',
   },
   {
     name: 'AWS',
@@ -58,9 +66,33 @@ const learnings: SkillData[] = [
 
 const About = () => (
   <>
-    <Typography>
-      Hi! I am Wilson, a front-end developer based in Montreal, Quebec, Canada.
-    </Typography>
+    <Grid container spacing={6} style={{marginBottom: 32}}>
+      <Grid item container xs={12} justifyContent='center'>
+        <Typography>
+          Hi! I am Wilson, a Software Engineer specialized in Front-end web development based in
+          Montreal, Quebec, Canada.
+        </Typography>
+      </Grid>
+      <Grid item xs={6}>
+        <Image src='/coffee.png' width='900' height='500' />
+      </Grid>
+      <Grid item xs={6} style={{alignSelf: 'center'}}>
+        <Typography>
+          I enjoy making latte/cappuccino every morning, have been actively learning latte art since
+          November 2021.
+        </Typography>
+        <Typography style={{textAlign: 'center'}}>&quot;Turn coffee into code&quot;</Typography>
+      </Grid>
+      <Grid item xs={6} style={{alignSelf: 'center'}}>
+        <Typography>
+          I enjoy watching korean dramas and animes when I am not coding, traveling, collecting
+          fragrance and playing video games are also my favorite pastimes.
+        </Typography>
+      </Grid>
+      <Grid item xs={6}>
+        <Image src='/livia.png' width='360' height='450' />
+      </Grid>
+    </Grid>
     <Grid container>
       <Grid item container xs={6} justifyContent='end'>
         <List>
