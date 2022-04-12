@@ -39,6 +39,10 @@ const skills: SkillData[] = [
     name: 'Node.js',
     logo: '/nodeLogo.png',
   },
+  {
+    name: 'Storybook.js',
+    logo: '/storybookLogo.png',
+  },
 ]
 
 const learnings: SkillData[] = [
