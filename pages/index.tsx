@@ -66,6 +66,10 @@ const learnings: SkillData[] = [
     name: 'AWS',
     logo: '/awsLogo.svg',
   },
+  {
+    name: 'Latex/Overleaf',
+    logo: '/overleafLogo.png',
+  },
 ]
 
 const About = () => (
