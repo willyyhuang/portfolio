@@ -13,6 +13,7 @@ import styled from 'styled-components'
 const StyledImage = styled(Image)`
   border-radius: 10px;
 `
+
 type SkillData = {
   name: string
   logo: string
@@ -51,6 +52,14 @@ const skills: SkillData[] = [
     name: 'Cypress',
     logo: '/cypressLogo.png',
   },
+  {
+    name: 'Microsoft Azure',
+    logo: '/azureLogo.png',
+  },
+  {
+    name: 'Webpack',
+    logo: '/webpackLogo.png',
+  },
 ]
 
 const learnings: SkillData[] = [
@@ -69,6 +78,10 @@ const learnings: SkillData[] = [
   {
     name: 'Latex/Overleaf',
     logo: '/overleafLogo.png',
+  },
+  {
+    name: 'Vite',
+    logo: '/viteLogo.svg',
   },
 ]
 
