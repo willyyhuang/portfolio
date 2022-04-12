@@ -82,8 +82,8 @@ const About = () => (
       </Grid>
       <Grid item xs={6} style={{alignSelf: 'center'}}>
         <Typography>
-          I enjoy making latte/cappuccino every morning, have been actively learning latte art since
-          November 2021.
+          I enjoy making latte or cappuccino every morning, have been actively learning latte art
+          since November 2021.
         </Typography>
         <Typography style={{textAlign: 'center'}}>&quot;Turn coffee into code&quot;</Typography>
       </Grid>
