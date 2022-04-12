@@ -27,7 +27,17 @@ const Miscellaneous = () => {
   }
 
   return isValidated ? (
-    <div />
+    <div className='video-responsive'>
+      <iframe
+        width='720'
+        height='480'
+        src='https://www.youtube.com/embed/dQw4w9WgXcQ'
+        frameBorder='0'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+        allowFullScreen
+        title='Embedded youtube'
+      />
+    </div>
   ) : (
     <BoxWrap>
       <Grid container>
