@@ -1,5 +1,6 @@
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined'
 import {Avatar, Grid, TextField} from '@mui/material'
+import Image from 'next/image'
 import {useState} from 'react'
 import styled from 'styled-components'
 
@@ -31,7 +32,9 @@ const Miscellaneous = () => {
     <BoxWrap>
       <Grid container>
         <Grid item xs={12} container justifyContent='center' style={{marginBottom: 32}}>
-          <Avatar />
+          <Avatar>
+            <Image src='/logo.png' width='50' height='50' />
+          </Avatar>
         </Grid>
         <Grid item xs={12}>
           <TextField
