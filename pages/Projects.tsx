@@ -100,7 +100,12 @@ const otherProjects: Omit<ProjectData, 'logo' | 'role' | 'dimensions' | 'link'>[
 
 const Project = () => {
   const getLogo = (project: ProjectData) => (
-    <Image src={project.logo} width={project.dimensions.width} height={project.dimensions.height} />
+    <Image
+      src={project.logo}
+      width={project.dimensions.width}
+      height={project.dimensions.height}
+      style={{borderRadius: 10}}
+    />
   )
 
   const getDescription = (project: ProjectData) => (
@@ -168,7 +173,13 @@ const Project = () => {
             container
             item
             xs={12}
-            style={{border: '2px solid', padding: 16, marginBottom: 24, boxShadow: '5px 5px'}}>
+            style={{
+              border: '2px solid',
+              padding: 16,
+              marginBottom: 24,
+              boxShadow: '5px 5px',
+              borderRadius: 10,
+            }}>
             <Grid item xs={12}>
               <Link href={project?.github} underline='none'>
                 {project?.github && <GitHubIcon fontSize='small' style={{marginRight: 6}} />}

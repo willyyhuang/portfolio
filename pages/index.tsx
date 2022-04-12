@@ -8,7 +8,11 @@ import {
   Typography,
 } from '@mui/material'
 import Image from 'next/image'
+import styled from 'styled-components'
 
+const StyledImage = styled(Image)`
+  border-radius: 10px;
+`
 type SkillData = {
   name: string
   logo: string
@@ -74,7 +78,7 @@ const About = () => (
         </Typography>
       </Grid>
       <Grid item xs={6}>
-        <Image src='/coffee.png' width='900' height='500' />
+        <StyledImage src='/coffee.png' width='900' height='500' />
       </Grid>
       <Grid item xs={6} style={{alignSelf: 'center'}}>
         <Typography>
@@ -90,7 +94,7 @@ const About = () => (
         </Typography>
       </Grid>
       <Grid item xs={6}>
-        <Image src='/livia.png' width='360' height='450' />
+        <StyledImage src='/livia.png' width='360' height='450' />
       </Grid>
     </Grid>
     <Grid container>
@@ -102,7 +106,7 @@ const About = () => (
           {learnings.map((skill) => (
             <ListItem>
               <ListItemAvatar>
-                <Image src={skill.logo} width='50' height='50' />
+                <StyledImage src={skill.logo} width='50' height='50' />
               </ListItemAvatar>
               <ListItemText>{skill.name}</ListItemText>
             </ListItem>
@@ -118,7 +122,7 @@ const About = () => (
           {skills.map((skill) => (
             <ListItem>
               <ListItemAvatar>
-                <Image src={skill.logo} width='50' height='50' />
+                <StyledImage src={skill.logo} width='50' height='50' />
               </ListItemAvatar>
               <ListItemText>{skill.name}</ListItemText>
             </ListItem>
