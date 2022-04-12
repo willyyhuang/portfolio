@@ -68,6 +68,12 @@ const projects: ProjectData[] = [
 
 const otherProjects: Omit<ProjectData, 'logo' | 'role' | 'dimensions' | 'link'>[] = [
   {
+    title: 'portfolio',
+    description: 'My simple portfolio website',
+    techStack: 'React.js, Next.js, MaterialUI, CSS',
+    github: 'https://github.com/willyyhuang/portfolio',
+  },
+  {
     title: 'octave-control-function-gui',
     description: 'Simple GUI for control system plotting.',
     techStack: 'Python, octave, matlab, Tkinter',
@@ -91,10 +97,16 @@ const otherProjects: Omit<ProjectData, 'logo' | 'role' | 'dimensions' | 'link'>[
     github: 'https://github.com/bcobo341/COMP472_Project_2',
   },
   {
-    title: 'portfolio',
-    description: 'My simple portfolio website',
-    techStack: 'React.js, Next.js, MaterialUI, CSS',
-    github: 'https://github.com/willyyhuang/portfolio',
+    title: 'instagratification',
+    description: 'A Direct rip-off of Instagram™',
+    techStack: 'React.js, Javascript, AntDesign',
+    github: 'https://github.com/m-triassi/instagratification',
+  },
+  {
+    title: 'Discord bot',
+    description: 'A discord bot that responds to commands to output memes',
+    techStack: 'Javascript, Discord API',
+    github: 'https://github.com/willyyhuang/discordbot',
   },
 ]
 
