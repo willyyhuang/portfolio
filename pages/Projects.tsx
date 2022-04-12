@@ -90,6 +90,12 @@ const otherProjects: Omit<ProjectData, 'logo' | 'role' | 'dimensions' | 'link'>[
     techStack: 'Python, numpy',
     github: 'https://github.com/bcobo341/COMP472_Project_2',
   },
+  {
+    title: 'portfolio',
+    description: 'My simple portfolio website',
+    techStack: 'React.js, Next.js, MaterialUI, CSS',
+    github: 'https://github.com/willyyhuang/portfolio',
+  },
 ]
 
 const Project = () => {
