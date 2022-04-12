@@ -7,12 +7,11 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import PersonIcon from '@mui/icons-material/Person'
 import ShuffleIcon from '@mui/icons-material/Shuffle'
 import {Button, Grid, Link as MuiLink} from '@mui/material'
+import {password} from '@utils/constant'
 import Image from 'next/image'
 import Link from 'next/link'
 import {ReactNode} from 'react'
 import styled from 'styled-components'
-
-import {password} from '../utils/constant'
 
 const StyledHeader = styled(Grid)`
   padding: 5vh 0px 5vh 0px;

@@ -1,10 +1,9 @@
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined'
 import {Avatar, Grid, TextField} from '@mui/material'
+import {password} from '@utils/constant'
 import Image from 'next/image'
 import {useState} from 'react'
 import styled from 'styled-components'
-
-import {password} from '../utils/constant'
 
 const BoxWrap = styled.div`
   width: 300px;

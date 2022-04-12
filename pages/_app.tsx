@@ -1,14 +1,13 @@
-import '../styles/globals.css'
+import '@styles/globals.css'
 
+import Layout from '@components/Layout'
 import {CacheProvider} from '@emotion/react'
 import {ThemeProvider} from '@mui/material'
 import CssBaseline from '@mui/material/CssBaseline'
+import createEmotionCache from '@styles/createEmotionCache'
+import theme from '@styles/theme'
 import {AppProps} from 'next/app'
 import Head from 'next/head'
-
-import Layout from '../components/Layout'
-import createEmotionCache from '../styles/createEmotionCache'
-import theme from '../styles/theme'
 
 const clientSideEmotionCache = createEmotionCache()
 const MyApp = ({
