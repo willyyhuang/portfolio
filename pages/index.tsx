@@ -90,9 +90,20 @@ const About = () => (
     <Grid container spacing={6} style={{marginBottom: 32}}>
       <Grid item container xs={12} justifyContent='center'>
         <Typography>
-          Hi! I am Wilson, a Software Engineer specialized in Front-end web development based in
-          Montreal, Quebec, Canada.
+          Hi! Welcome to my portfolio website! I am Wilson, a Software Engineer specialized in
+          Front-end web development based in Montreal, Quebec, Canada.
         </Typography>
+      </Grid>
+      <Grid item container xs={12} justifyContent='center'>
+        <Typography>
+          I am a graduate at Concordia University in Software Engineering, mainly interested in
+          Front-end web development, DevOps and project management. Other than those, I have been
+          actively learning various other topics in artificial intelligence such as computer vision
+          and machine learning.
+        </Typography>
+      </Grid>
+      <Grid item container xs={12} justifyContent='center'>
+        <Typography variant='h4'>Hobbies</Typography>
       </Grid>
       <Grid item xs={6}>
         <StyledImage src='/coffee.png' width='900' height='500' />
@@ -102,17 +113,29 @@ const About = () => (
           I enjoy making latte or cappuccino every morning, have been actively learning latte art
           since November 2021.
         </Typography>
-        <Typography style={{textAlign: 'center'}}>&quot;Turn coffee into code&quot;</Typography>
       </Grid>
       <Grid item xs={6} style={{alignSelf: 'center'}}>
         <Typography>
-          I enjoy watching korean dramas and animes when I am not coding. Traveling, collecting
-          fragrance, building small hardware and playing video games are also my favorite hobbies.
+          I enjoy watching korean dramas and animes when I am not coding. Traveling, fashion and
+          playing video games are also my favorite pastimes.
         </Typography>
       </Grid>
       <Grid item xs={6}>
         <StyledImage src='/livia.png' width='360' height='450' />
       </Grid>
+      <Grid item xs={6}>
+        <StyledImage src='/keyboard.png' width='852' height='831' />
+      </Grid>
+      <Grid item xs={6} style={{alignSelf: 'center'}}>
+        <Typography>
+          Keyboards are essential tools for developers, here is one of the keyboard I made from
+          scratch (more or less), the parts are bought from a group buy, then it is assembled
+          soldered switches and custom keycaps.
+        </Typography>
+      </Grid>
+    </Grid>
+    <Grid item container xs={12} justifyContent='center'>
+      <Typography variant='h4'>Skills</Typography>
     </Grid>
     <Grid container>
       <Grid item container xs={6} justifyContent='end'>
@@ -125,7 +148,7 @@ const About = () => (
             </ListItemText>
           </ListItem>
           {learnings.map((skill) => (
-            <ListItem>
+            <ListItem key={skill.name}>
               <ListItemAvatar>
                 <StyledImage src={skill.logo} width='50' height='50' />
               </ListItemAvatar>
@@ -139,11 +162,11 @@ const About = () => (
         <List>
           <ListItem>
             <ListItemText>
-              <Typography style={{fontSize: '150%', fontWeight: 500}}>Skills</Typography>
+              <Typography style={{fontSize: '150%', fontWeight: 500}}>Tools</Typography>
             </ListItemText>
           </ListItem>
           {skills.map((skill) => (
-            <ListItem>
+            <ListItem key={skill.name}>
               <ListItemAvatar>
                 <StyledImage src={skill.logo} width='50' height='50' />
               </ListItemAvatar>
