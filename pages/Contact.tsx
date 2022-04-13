@@ -12,7 +12,7 @@ const Contact = () => (
         <Typography>Email</Typography>
       </Grid>
       <Grid item xs={6}>
-        <Typography>wh.dev@icloud.com</Typography>
+        <Typography>wh@pewf.dev</Typography>
       </Grid>
       <Grid item xs={6}>
         <Typography>LinkedIn</Typography>

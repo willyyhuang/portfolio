@@ -98,7 +98,7 @@ const Layout = ({children}: LayoutProps) => {
           <IconLink href='https://github.com/willyyhuang' target='_blank'>
             <GitHubIcon />
           </IconLink>
-          <IconLink href='mailto:wh.dev@icloud.com'>
+          <IconLink href='mailto:wh@pewf.dev'>
             <EmailIcon />
           </IconLink>
           <IconLink href='https://ko-fi.com/F1F1AJCDR' target='_blank'>
