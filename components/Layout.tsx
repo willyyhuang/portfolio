@@ -6,11 +6,13 @@ import InstagramIcon from '@mui/icons-material/Instagram'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import PersonIcon from '@mui/icons-material/Person'
 import ShuffleIcon from '@mui/icons-material/Shuffle'
-import {Button, Grid, Link as MuiLink} from '@mui/material'
+import {Button, CircularProgress, Grid, Link as MuiLink} from '@mui/material'
 import {password} from '@utils/constant'
+import {hexEncode} from '@utils/index'
 import Image from 'next/image'
 import Link from 'next/link'
-import {ReactNode} from 'react'
+import Router from 'next/router'
+import {ReactNode, useState} from 'react'
 import styled from 'styled-components'
 
 const StyledHeader = styled(Grid)`
@@ -43,11 +45,11 @@ type LayoutProps = {
 }
 
 const Layout = ({children}: LayoutProps) => {
-  const hexEncode = () =>
-    password
-      .split('')
-      .map((char: string) => char.charCodeAt(0).toString(16))
-      .join('')
+  const [loading, setIsLoading] = useState<boolean>(false)
+
+  Router.events.on('routeChangeStart', () => setIsLoading(true))
+  Router.events.on('routeChangeComplete', () => setIsLoading(false))
+  Router.events.on('routeChangeError', () => setIsLoading(false))
 
   return (
     <LayoutWrapper>
@@ -57,7 +59,7 @@ const Layout = ({children}: LayoutProps) => {
             src='/logo.png'
             width='100'
             height='100'
-            onClick={() => navigator.clipboard.writeText(hexEncode())}
+            onClick={() => navigator.clipboard.writeText(hexEncode(password))}
             style={{cursor: 'pointer'}}
           />
         </Grid>
@@ -84,7 +86,7 @@ const Layout = ({children}: LayoutProps) => {
       </StyledHeader>
       <StyledContent>
         <Grid container justifyContent='center'>
-          {children}
+          {loading ? <CircularProgress /> : children}
         </Grid>
       </StyledContent>
       <StyledFooter>

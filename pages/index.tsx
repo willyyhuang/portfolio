@@ -98,8 +98,8 @@ const About = () => (
         <Typography>
           I am a graduate at Concordia University in Software Engineering, mainly interested in
           Front-end web development, DevOps and project management. Other than those, I have been
-          actively learning various other topics in artificial intelligence such as computer vision
-          and machine learning.
+          actively learning various topics in artificial intelligence such as computer vision and
+          machine learning.
         </Typography>
       </Grid>
       <Grid item container xs={12} justifyContent='center'>
