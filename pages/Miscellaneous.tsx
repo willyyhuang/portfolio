@@ -35,7 +35,7 @@ const Miscellaneous = () => {
 
   return (
     <>
-      <Grid item xs={12}>
+      <Grid item xs={12} container justifyContent='center'>
         {isValidated ? (
           <>
             <div className='video-responsive'>
