@@ -33,6 +33,26 @@ const skills: SkillData[] = [
     logo: '/tsLogo.svg',
   },
   {
+    name: 'Node.js',
+    logo: '/nodeLogo.png',
+  },
+  {
+    name: 'Next.js',
+    logo: '/nextjsLogo.png',
+  },
+  {
+    name: 'Storybook.js',
+    logo: '/storybookLogo.png',
+  },
+  {
+    name: 'Webpack',
+    logo: '/webpackLogo.png',
+  },
+  {
+    name: 'Cypress',
+    logo: '/cypressLogo.png',
+  },
+  {
     name: 'Python',
     logo: '/pythonLogo.png',
   },
@@ -41,32 +61,12 @@ const skills: SkillData[] = [
     logo: '/gitLogo.png',
   },
   {
-    name: 'Node.js',
-    logo: '/nodeLogo.png',
-  },
-  {
-    name: 'Storybook.js',
-    logo: '/storybookLogo.png',
-  },
-  {
-    name: 'Cypress',
-    logo: '/cypressLogo.png',
-  },
-  {
     name: 'Microsoft Azure',
     logo: '/azureLogo.png',
-  },
-  {
-    name: 'Webpack',
-    logo: '/webpackLogo.png',
   },
 ]
 
 const learnings: SkillData[] = [
-  {
-    name: 'Next.js',
-    logo: '/nextjsLogo.png',
-  },
   {
     name: 'Docker',
     logo: '/dockerLogo.png',
@@ -76,12 +76,16 @@ const learnings: SkillData[] = [
     logo: '/awsLogo.svg',
   },
   {
-    name: 'Latex/Overleaf',
-    logo: '/overleafLogo.png',
-  },
-  {
     name: 'Vite',
     logo: '/viteLogo.svg',
+  },
+  {
+    name: 'Express.js',
+    logo: '/expressjsLogo.png',
+  },
+  {
+    name: 'Latex/Overleaf',
+    logo: '/overleafLogo.png',
   },
 ]
 
@@ -91,7 +95,7 @@ const About = () => (
       <Grid item container xs={12} justifyContent='center'>
         <Typography>
           Hi! Welcome to my portfolio website! I am Wilson, a Software Engineer specialized in
-          Front-end web development based in Montreal, Quebec, Canada.
+          Front-end development based in Montreal, Quebec, Canada.
         </Typography>
       </Grid>
       <Grid item container xs={12} justifyContent='center'>

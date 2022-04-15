@@ -1,12 +1,12 @@
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined'
-import {Avatar, Grid, TextField} from '@mui/material'
+import {Avatar, Grid, TextField, Typography} from '@mui/material'
 import {password} from '@utils/constant'
 import Image from 'next/image'
 import {useState} from 'react'
 import styled from 'styled-components'
 
 const BoxWrap = styled.div`
-  width: 300px;
+  width: 400px;
   height: 300px;
   margin: 15% auto 0;
   display: block;
@@ -20,23 +20,34 @@ const BoxWrap = styled.div`
 
 const Miscellaneous = () => {
   const [value, setValue] = useState<string>()
+  const [error, setError] = useState<boolean>(false)
   const [isValidated, setIsValidated] = useState<boolean>(false)
   const handleValidate = () => {
-    if (value === password) setIsValidated(true)
+    if (value === password) {
+      setIsValidated(true)
+      setError(false)
+    } else {
+      setError(true)
+    }
   }
 
   return isValidated ? (
-    <div className='video-responsive'>
-      <iframe
-        width='720'
-        height='480'
-        src='https://www.youtube.com/embed/dQw4w9WgXcQ?&autoplay=1'
-        frameBorder='0'
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-        allowFullScreen
-        title='Embedded youtube'
-      />
-    </div>
+    <>
+      <div className='video-responsive'>
+        <iframe
+          width='720'
+          height='480'
+          src='https://www.youtube.com/embed/dQw4w9WgXcQ?&autoplay=1'
+          frameBorder='0'
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+          allowFullScreen
+          title='Embedded youtube'
+        />
+      </div>
+      <Grid item xs={12} container justifyContent='center'>
+        <Typography>Congratulation on reaching here!</Typography>
+      </Grid>
+    </>
   ) : (
     <BoxWrap>
       <Grid container>
@@ -47,7 +58,8 @@ const Miscellaneous = () => {
         </Grid>
         <Grid item xs={12}>
           <TextField
-            helperText='hint: convert hex to string'
+            error={error}
+            helperText='hint: clipboard and convert hex to string'
             fullWidth
             variant='outlined'
             size='small'
