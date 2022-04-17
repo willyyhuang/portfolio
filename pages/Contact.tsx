@@ -9,14 +9,21 @@ const StyledButton = styled(Button)`
   font-weight: 1000;
 `
 
+const StyledDeclineButton = styled(Button)`
+  color: #0096d6;
+  text-transform: none;
+  font-weight: 500;
+`
+
 const StyledBox = styled(Box)`
+  width: 400px;
   padding: 12px 12px 0px 12px;
   border: 0px solid;
   border-radius: 12px;
   margin-top: 1;
   background-color: #a3aaae;
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 `
@@ -74,20 +81,23 @@ const Contact = () => {
               </Grid>
               <Grid container justifyContent='center' item xs={12}>
                 <Typography color='black'>
-                  This user would like to share the resume with you.
+                  &quot;Wilson&quot; would like to share a resume.
                 </Typography>
+              </Grid>
+              <Grid item xs={12}>
+                <Divider
+                  orientation='horizontal'
+                  flexItem
+                  sx={{borderBottomWidth: 1, marginTop: 1}}
+                />
               </Grid>
               <Grid item xs={1} />
               <Grid item xs={5}>
-                <StyledButton fullWidth onClick={() => setIsModalOpen(false)}>
+                <StyledDeclineButton fullWidth onClick={() => setIsModalOpen(false)}>
                   Decline
-                </StyledButton>
+                </StyledDeclineButton>
               </Grid>
-              <Divider
-                orientation='vertical'
-                flexItem
-                sx={{borderRightWidth: 2, color: '#f6f3ed'}}
-              />
+              <Divider orientation='vertical' flexItem sx={{borderRightWidth: 1}} />
               <Grid item xs={5}>
                 <StyledButton
                   fullWidth
