@@ -101,9 +101,9 @@ const About = () => (
       <Grid item container xs={12} justifyContent='center'>
         <Typography>
           I am a graduate at Concordia University in Software Engineering, mainly interested in
-          Front-end web development, DevOps and project management. Other than those, I have been
-          actively learning various topics in artificial intelligence such as computer vision and
-          machine learning.
+          Front-end development (Web/Mobile), DevOps and project management. Other than those, I
+          have been actively learning various topics in artificial intelligence such as computer
+          vision and machine learning.
         </Typography>
       </Grid>
       <Grid item container xs={12} justifyContent='center'>
@@ -121,7 +121,7 @@ const About = () => (
       <Grid item xs={6} style={{alignSelf: 'center'}}>
         <Typography>
           I enjoy watching korean dramas and animes when I am not coding. Traveling, fashion and
-          playing video games are also my favorite pastimes.
+          playing video games are also some of my favorite pastimes.
         </Typography>
       </Grid>
       <Grid item xs={6}>
@@ -133,7 +133,7 @@ const About = () => (
       <Grid item xs={6} style={{alignSelf: 'center'}}>
         <Typography>
           Keyboards are essential tools for developers, here is one of the keyboard I made from
-          scratch (more or less), the parts are bought from a group buy, then it is assembled
+          scratch (more or less), the parts are bought from a group buy, then it is assembled with
           soldered switches and custom keycaps.
         </Typography>
       </Grid>
