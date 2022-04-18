@@ -1,29 +1,29 @@
-import "@styles/globals.css"
+import '@styles/globals.css'
 
-import Layout from "@components/Layout"
-import { CacheProvider } from "@emotion/react"
-import { ThemeProvider } from "@mui/material"
-import CssBaseline from "@mui/material/CssBaseline"
-import createEmotionCache from "@styles/createEmotionCache"
-import theme from "@styles/theme"
-import { AppProps } from "next/app"
-import Head from "next/head"
+import Layout from '@components/Layout'
+import {CacheProvider} from '@emotion/react'
+import {ThemeProvider} from '@mui/material'
+import CssBaseline from '@mui/material/CssBaseline'
+import createEmotionCache from '@styles/createEmotionCache'
+import theme from '@styles/theme'
+import {AppProps} from 'next/app'
+import Head from 'next/head'
 
 const clientSideEmotionCache = createEmotionCache()
 const MyApp = ({
   Component,
   pageProps,
   emotionCache = clientSideEmotionCache,
-}: AppProps & { emotionCache: typeof clientSideEmotionCache }) => (
+}: AppProps & {emotionCache: typeof clientSideEmotionCache}) => (
   <CacheProvider value={emotionCache}>
     <Head>
       <title>Wilson Huang</title>
-      <meta charSet="UTF-8" />
+      <meta charSet='UTF-8' />
       <meta
-        name="keywords"
-        content="wilson, front, end, developer, reactjs, react, javascript, typescript, nextjs"
+        name='keywords'
+        content='wilson, front, end, developer, reactjs, react, javascript, typescript, nextjs'
       />
-      <meta name="author" content="Wilson Huang" />
+      <meta name='author' content='Wilson Huang' />
     </Head>
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -34,5 +34,5 @@ const MyApp = ({
   </CacheProvider>
 )
 
-MyApp.displayName = "MyApp"
+MyApp.displayName = 'MyApp'
 export default MyApp
