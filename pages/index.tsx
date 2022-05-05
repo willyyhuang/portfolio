@@ -88,7 +88,7 @@ const learnings: SkillData[] = [
     logo: '/overleafLogo.png',
   },
   {
-    name: 'Graphql',
+    name: 'GraphQL',
     logo: '/graphqlLogo.png',
   },
 ]
