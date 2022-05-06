@@ -203,7 +203,7 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
           xs={12}
           justifyContent='center'
           onClick={refreshImage}
-          style={{cursor: 'pointer'}}>
+          sx={{cursor: 'pointer'}}>
           <StyledImg src={currentImage} />
         </StyledGrid>
       )}
