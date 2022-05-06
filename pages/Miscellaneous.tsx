@@ -197,7 +197,13 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
         <StyledIcon onClick={refreshImage} />
       </StyledGrid>
       {currentImage && (
-        <StyledGrid item container xs={12} justifyContent='center'>
+        <StyledGrid
+          item
+          container
+          xs={12}
+          justifyContent='center'
+          onClick={refreshImage}
+          style={{cursor: 'pointer'}}>
           <StyledImg src={currentImage} />
         </StyledGrid>
       )}

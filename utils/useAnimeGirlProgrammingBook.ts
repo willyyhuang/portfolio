@@ -9,7 +9,7 @@ const rawImageUrlPrefix =
   'https://raw.githubusercontent.com/cat-milk/Anime-Girls-Holding-Programming-Books/master/'
 
 const useAnimeGirlProgrammingBook = (animeGirlProgramming: any) => {
-    const [selectedProgrammingLanguage, setSelectedProgrammingLanguage] = useState<string>()
+    const [selectedProgrammingLanguage, setSelectedProgrammingLanguage] = useState<any>()
     const [currentImage, setCurrentImage] = useState<string>()
 
     const formattedData = animeGirlProgramming?.repository?.object?.entries.map((folder: any) => {
