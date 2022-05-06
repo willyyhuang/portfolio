@@ -8,7 +8,7 @@ const httpLink = createHttpLink({
 const authLink = setContext((_, {headers}) => ({
     headers: {
       ...headers,
-      authorization: `Bearer ${process.env.GitHubGraphQLKey}`,
+      authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
     }
   }))
 
