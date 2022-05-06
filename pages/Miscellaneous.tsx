@@ -32,10 +32,6 @@ const StyledImg = styled.img`
   max-width: 60vw;
 `
 
-const StyledGrid = styled(Grid)`
-  margin-top: 24px;
-`
-
 const StyledIcon = styled(RefreshIcon)`
   vertical-align: middle;
   margin: 6px;
@@ -97,7 +93,7 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
   } = useAnimeGirlProgrammingBook(animeGirlProgramming)
 
   return (
-    <>
+    <Grid container rowSpacing={4}>
       <Grid item xs={12} container justifyContent='center'>
         {isValidated ? (
           <>
@@ -154,10 +150,10 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
           </BoxWrap>
         )}
       </Grid>
-      <StyledGrid item xs={12}>
+      <Grid item xs={12}>
         <Divider orientation='horizontal' />
-      </StyledGrid>
-      <StyledGrid item container xs={12} justifyContent='center'>
+      </Grid>
+      <Grid item container xs={12} justifyContent='center'>
         <Button
           onClick={async () => {
             const data = await getActivity()
@@ -165,19 +161,19 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
           }}>
           Click for a random activity to do!
         </Button>
-      </StyledGrid>
+      </Grid>
       {activity && (
-        <StyledGrid item container xs={12} justifyContent='center'>
+        <Grid item container xs={12} justifyContent='center'>
           <Typography>{activity.activity}</Typography>
-        </StyledGrid>
+        </Grid>
       )}
-      <StyledGrid item xs={12}>
+      <Grid item xs={12}>
         <Divider orientation='horizontal' />
-      </StyledGrid>
-      <StyledGrid item container xs={12} justifyContent='center'>
+      </Grid>
+      <Grid item container xs={12} justifyContent='center'>
         <Typography>Select your favorite programming language!</Typography>
-      </StyledGrid>
-      <StyledGrid item xs={8} container justifyContent='end'>
+      </Grid>
+      <Grid item xs={8} container justifyContent='end'>
         <StyledSelect
           size='small'
           MenuProps={{
@@ -189,15 +185,16 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
           onChange={(e) => setSelectedProgrammingLanguage(e.target.value)}>
           {entries?.map((entry: any) => (
             <MenuItem
+              key={entry.folderName}
               value={entry.folderName}>{`${entry.folderName} (${entry.files?.length})`}</MenuItem>
           ))}
         </StyledSelect>
-      </StyledGrid>
-      <StyledGrid item xs={4}>
+      </Grid>
+      <Grid item xs={4}>
         <StyledIcon onClick={refreshImage} />
-      </StyledGrid>
+      </Grid>
       {currentImage && (
-        <StyledGrid
+        <Grid
           item
           container
           xs={12}
@@ -205,9 +202,9 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
           onClick={refreshImage}
           sx={{cursor: 'pointer'}}>
           <StyledImg src={currentImage} />
-        </StyledGrid>
+        </Grid>
       )}
-    </>
+    </Grid>
   )
 }
 
