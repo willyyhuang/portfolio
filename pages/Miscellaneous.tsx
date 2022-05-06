@@ -1,6 +1,8 @@
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined'
-import {Avatar, Button, Grid, TextField, Typography} from '@mui/material'
+import RefreshIcon from '@mui/icons-material/Refresh'
+import {Avatar, Button, Divider, Grid, MenuItem, Select, TextField, Typography} from '@mui/material'
 import {password} from '@utils/constant'
+import useAnimeGirlProgrammingBook from '@utils/useAnimeGirlProgrammingBook'
 import Image from 'next/image'
 import {getActivity} from 'pages/api/activity'
 import {useState} from 'react'
@@ -19,6 +21,24 @@ const BoxWrap = styled.div`
   box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 20px;
 `
 
+const StyledSelect = styled(Select)`
+  width: 50%;
+`
+
+const StyledImg = styled.img`
+  max-width: 60vw;
+`
+
+const StyledGrid = styled(Grid)`
+  margin-top: 32px;
+`
+
+const StyledIcon = styled(RefreshIcon)`
+  vertical-align: middle;
+  margin: 6px;
+  cursor: pointer;
+`
+
 const Miscellaneous = () => {
   const [value, setValue] = useState<string>()
   const [error, setError] = useState<boolean>(false)
@@ -32,6 +52,13 @@ const Miscellaneous = () => {
     }
   }
   const [activity, setActivity] = useState<{activity: string; type: string}>()
+  const {
+    entries,
+    selectedProgrammingLanguage,
+    setSelectedProgrammingLanguage,
+    refreshImage,
+    currentImage,
+  } = useAnimeGirlProgrammingBook()
 
   return (
     <>
@@ -91,7 +118,10 @@ const Miscellaneous = () => {
           </BoxWrap>
         )}
       </Grid>
-      <Grid item container xs={12} justifyContent='center' style={{marginTop: 32}}>
+      <StyledGrid xs={12}>
+        <Divider orientation='horizontal' />
+      </StyledGrid>
+      <StyledGrid item container xs={12} justifyContent='center'>
         <Button
           onClick={async () => {
             const data = await getActivity()
@@ -99,11 +129,41 @@ const Miscellaneous = () => {
           }}>
           Click for a random activity to do!
         </Button>
-      </Grid>
+      </StyledGrid>
       {activity && (
-        <Grid item container xs={12} justifyContent='center' style={{marginTop: 32}}>
+        <StyledGrid item container xs={12} justifyContent='center'>
           <Typography>{activity.activity}</Typography>
-        </Grid>
+        </StyledGrid>
+      )}
+      <StyledGrid xs={12}>
+        <Divider orientation='horizontal' />
+      </StyledGrid>
+      <StyledGrid item container xs={12} justifyContent='center'>
+        <Typography>Select your favorite programming language!</Typography>
+      </StyledGrid>
+      <StyledGrid item xs={8} container justifyContent='end'>
+        <StyledSelect
+          size='small'
+          MenuProps={{
+            sx: {
+              maxHeight: 400,
+            },
+          }}
+          value={selectedProgrammingLanguage}
+          onChange={(e) => setSelectedProgrammingLanguage(e.target.value)}>
+          {entries.map((entry) => (
+            <MenuItem
+              value={entry.folderName}>{`${entry.folderName} (${entry.files?.length})`}</MenuItem>
+          ))}
+        </StyledSelect>
+      </StyledGrid>
+      <StyledGrid item xs={4}>
+        <StyledIcon onClick={refreshImage} />
+      </StyledGrid>
+      {currentImage && (
+        <StyledGrid item container xs={12} justifyContent='center'>
+          <StyledImg src={currentImage} />
+        </StyledGrid>
       )}
     </>
   )

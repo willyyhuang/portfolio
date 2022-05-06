@@ -1,5 +1,6 @@
 import '@styles/globals.css'
 
+import {ApolloProvider} from '@apollo/client'
 import Layout from '@components/Layout'
 import {CacheProvider} from '@emotion/react'
 import {ThemeProvider} from '@mui/material'
@@ -8,6 +9,8 @@ import createEmotionCache from '@styles/createEmotionCache'
 import theme from '@styles/theme'
 import {AppProps} from 'next/app'
 import Head from 'next/head'
+
+import {client} from '../ApolloClient'
 
 const clientSideEmotionCache = createEmotionCache()
 const MyApp = ({
@@ -25,12 +28,14 @@ const MyApp = ({
       />
       <meta name='author' content='Wilson Huang' />
     </Head>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ThemeProvider>
+    <ApolloProvider client={client}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
+    </ApolloProvider>
   </CacheProvider>
 )
 
