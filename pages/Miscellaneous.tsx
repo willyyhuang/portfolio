@@ -154,7 +154,7 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
           </BoxWrap>
         )}
       </Grid>
-      <StyledGrid xs={12}>
+      <StyledGrid item xs={12}>
         <Divider orientation='horizontal' />
       </StyledGrid>
       <StyledGrid item container xs={12} justifyContent='center'>
@@ -171,7 +171,7 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
           <Typography>{activity.activity}</Typography>
         </StyledGrid>
       )}
-      <StyledGrid xs={12}>
+      <StyledGrid item xs={12}>
         <Divider orientation='horizontal' />
       </StyledGrid>
       <StyledGrid item container xs={12} justifyContent='center'>
