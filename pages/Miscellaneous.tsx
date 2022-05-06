@@ -33,7 +33,7 @@ const StyledImg = styled.img`
 `
 
 const StyledGrid = styled(Grid)`
-  margin-top: 32px;
+  margin-top: 24px;
 `
 
 const StyledIcon = styled(RefreshIcon)`
