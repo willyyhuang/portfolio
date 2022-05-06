@@ -1,3 +1,4 @@
+import {gql} from '@apollo/client'
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined'
 import RefreshIcon from '@mui/icons-material/Refresh'
 import {Avatar, Button, Divider, Grid, MenuItem, Select, TextField, Typography} from '@mui/material'
@@ -7,6 +8,8 @@ import Image from 'next/image'
 import {getActivity} from 'pages/api/activity'
 import {useState} from 'react'
 import styled from 'styled-components'
+
+import {client} from '../ApolloClient'
 
 const BoxWrap = styled.div`
   width: 400px;
@@ -39,7 +42,40 @@ const StyledIcon = styled(RefreshIcon)`
   cursor: pointer;
 `
 
-const Miscellaneous = () => {
+export const getStaticProps = async () => {
+  const {data} = await client.query({
+    query: gql`
+      query {
+        repository(owner: "cat-milk", name: "Anime-Girls-Holding-Programming-Books") {
+          name
+          object(expression: "master:") {
+            ... on Tree {
+              entries {
+                name
+                object {
+                  ... on Tree {
+                    entries {
+                      name
+                      path
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+  })
+
+  return {
+    props: {
+      animeGirlProgramming: data,
+    },
+  }
+}
+
+const Miscellaneous = ({animeGirlProgramming}: any) => {
   const [value, setValue] = useState<string>()
   const [error, setError] = useState<boolean>(false)
   const [isValidated, setIsValidated] = useState<boolean>(false)
@@ -58,7 +94,7 @@ const Miscellaneous = () => {
     setSelectedProgrammingLanguage,
     refreshImage,
     currentImage,
-  } = useAnimeGirlProgrammingBook()
+  } = useAnimeGirlProgrammingBook(animeGirlProgramming)
 
   return (
     <>
@@ -151,7 +187,7 @@ const Miscellaneous = () => {
           }}
           value={selectedProgrammingLanguage}
           onChange={(e) => setSelectedProgrammingLanguage(e.target.value)}>
-          {entries.map((entry) => (
+          {entries?.map((entry: any) => (
             <MenuItem
               value={entry.folderName}>{`${entry.folderName} (${entry.files?.length})`}</MenuItem>
           ))}
