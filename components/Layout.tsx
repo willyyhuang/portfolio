@@ -59,7 +59,9 @@ const Layout = ({children}: LayoutProps) => {
             width='100'
             height='100'
             onClick={() =>
-              navigator.clipboard.writeText(hexEncode(process.env.SECRET_PASSWORD || ''))
+              navigator.clipboard.writeText(
+                hexEncode(process.env.NEXT_PUBLIC_SECRET_PASSWORD || ''),
+              )
             }
             style={{cursor: 'pointer'}}
           />

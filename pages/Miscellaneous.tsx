@@ -75,7 +75,7 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
   const [error, setError] = useState<boolean>(false)
   const [isValidated, setIsValidated] = useState<boolean>(false)
   const handleValidate = () => {
-    if (value === process.env.SECRET_PASSWORD) {
+    if (value === process.env.NEXT_PUBLIC_SECRET_PASSWORD) {
       setIsValidated(true)
       setError(false)
     } else {
