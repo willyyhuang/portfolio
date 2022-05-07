@@ -2,7 +2,6 @@ import {gql} from '@apollo/client'
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined'
 import RefreshIcon from '@mui/icons-material/Refresh'
 import {Avatar, Button, Divider, Grid, MenuItem, Select, TextField, Typography} from '@mui/material'
-import {password} from '@utils/constant'
 import useAnimeGirlProgrammingBook from '@utils/useAnimeGirlProgrammingBook'
 import Image from 'next/image'
 import {getActivity} from 'pages/api/activity'
@@ -76,7 +75,7 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
   const [error, setError] = useState<boolean>(false)
   const [isValidated, setIsValidated] = useState<boolean>(false)
   const handleValidate = () => {
-    if (value === password) {
+    if (value === process.env.SECRET_PASSWORD) {
       setIsValidated(true)
       setError(false)
     } else {

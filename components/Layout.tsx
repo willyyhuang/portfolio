@@ -7,7 +7,6 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import PersonIcon from '@mui/icons-material/Person'
 import ShuffleIcon from '@mui/icons-material/Shuffle'
 import {Button, CircularProgress, Grid, Link as MuiLink} from '@mui/material'
-import {password} from '@utils/constant'
 import {hexEncode} from '@utils/index'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -59,7 +58,9 @@ const Layout = ({children}: LayoutProps) => {
             src='/logo.png'
             width='100'
             height='100'
-            onClick={() => navigator.clipboard.writeText(hexEncode(password))}
+            onClick={() =>
+              navigator.clipboard.writeText(hexEncode(process.env.SECRET_PASSWORD || ''))
+            }
             style={{cursor: 'pointer'}}
           />
         </Grid>
