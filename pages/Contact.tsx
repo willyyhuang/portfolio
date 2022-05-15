@@ -3,18 +3,6 @@ import {saveAs} from 'file-saver'
 import {useState} from 'react'
 import styled from 'styled-components'
 
-const StyledButton = styled(Button)`
-  color: #0096d6;
-  text-transform: none;
-  font-weight: 1000;
-`
-
-const StyledDeclineButton = styled(Button)`
-  color: #0096d6;
-  text-transform: none;
-  font-weight: 500;
-`
-
 const StyledBox = styled(Box)`
   width: 400px;
   padding: 12px 12px 0px 12px;
@@ -63,9 +51,12 @@ const Contact = () => {
               <Typography>Resume</Typography>
             </Grid>
             <Grid item xs={6}>
-              <StyledButton onClick={() => setIsModalOpen(true)} sx={{padding: 0}}>
+              <Button
+                color='info'
+                onClick={() => setIsModalOpen(true)}
+                sx={{padding: 0, textTransform: 'none', fontWeight: 1000}}>
                 Click me!
-              </StyledButton>
+              </Button>
             </Grid>
           </Grid>
         </StyledContactBox>
@@ -93,20 +84,26 @@ const Contact = () => {
               </Grid>
               <Grid item xs={1} />
               <Grid item xs={5}>
-                <StyledDeclineButton fullWidth onClick={() => setIsModalOpen(false)}>
+                <Button
+                  sx={{textTransform: 'none', fontWeight: 1000}}
+                  color='info'
+                  fullWidth
+                  onClick={() => setIsModalOpen(false)}>
                   Decline
-                </StyledDeclineButton>
+                </Button>
               </Grid>
               <Divider orientation='vertical' flexItem sx={{borderRightWidth: 1}} />
               <Grid item xs={5}>
-                <StyledButton
+                <Button
+                  sx={{textTransform: 'none', fontWeight: 1000}}
                   fullWidth
+                  color='info'
                   onClick={() => {
                     saveAs('/cv.pdf')
                     setIsModalOpen(false)
                   }}>
                   Accept
-                </StyledButton>
+                </Button>
               </Grid>
             </Grid>
           </StyledBox>

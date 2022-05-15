@@ -15,6 +15,10 @@ const theme = createTheme({
         main: '#ffffff',
         dark: '#ffffff',
       },
+      info: {
+        main: '#0096d6',
+        dark: '#0096d6',
+      },
       mode: 'dark',
     },
     components: {

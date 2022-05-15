@@ -150,7 +150,9 @@ const Project = () => {
             <GitHubIcon />
           </ListItemAvatar>
           <ListItemText>
-            <a href={project.github}>Repository</a>
+            <Link href={project.github} target='_blank' style={{color: '#0096d6'}}>
+              Repository
+            </Link>
           </ListItemText>
         </ListItem>
       )}
@@ -193,7 +195,7 @@ const Project = () => {
               borderRadius: 10,
             }}>
             <Grid item xs={12}>
-              <Link href={project?.github} underline='none'>
+              <Link href={project?.github} underline='none' target='_blank'>
                 {project?.github && <GitHubIcon fontSize='small' style={{marginRight: 6}} />}
                 {project.title}
               </Link>
