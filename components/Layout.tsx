@@ -55,6 +55,7 @@ const Layout = ({children}: LayoutProps) => {
       <StyledHeader container justifyContent='center'>
         <Grid item xs={12} md={4}>
           <Image
+            alt='logo'
             src='/logo.png'
             width='100'
             height='100'
@@ -105,9 +106,6 @@ const Layout = ({children}: LayoutProps) => {
           </IconLink>
           <IconLink href='mailto:wh@pewf.dev'>
             <EmailIcon />
-          </IconLink>
-          <IconLink href='https://ko-fi.com/F1F1AJCDR' target='_blank'>
-            <Image height='24' width='24' src='/kofi.png' />
           </IconLink>
         </Grid>
       </StyledFooter>

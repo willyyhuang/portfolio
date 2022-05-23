@@ -113,6 +113,7 @@ const otherProjects: Omit<ProjectData, 'logo' | 'role' | 'dimensions' | 'link'>[
 const Project = () => {
   const getLogo = (project: ProjectData) => (
     <Image
+      alt={project.title}
       src={project.logo}
       width={project.dimensions.width}
       height={project.dimensions.height}

@@ -158,7 +158,7 @@ const About = () => (
           {learnings.map((skill) => (
             <ListItem key={skill.name}>
               <ListItemAvatar>
-                <StyledImage src={skill.logo} width='50' height='50' />
+                <StyledImage src={skill.logo} width='50' height='50' alt={skill.name} />
               </ListItemAvatar>
               <ListItemText>{skill.name}</ListItemText>
             </ListItem>
@@ -176,7 +176,7 @@ const About = () => (
           {skills.map((skill) => (
             <ListItem key={skill.name}>
               <ListItemAvatar>
-                <StyledImage src={skill.logo} width='50' height='50' />
+                <StyledImage src={skill.logo} width='50' height='50' alt={skill.name} />
               </ListItemAvatar>
               <ListItemText>{skill.name}</ListItemText>
             </ListItem>
