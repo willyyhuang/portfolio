@@ -114,7 +114,7 @@ const About = () => (
         <Typography variant='h4'>Hobbies</Typography>
       </Grid>
       <Grid item xs={6}>
-        <StyledImage src='/coffee.png' width='900' height='500' />
+        <StyledImage src='/coffee.png' width='900' height='500' alt='coffee' />
       </Grid>
       <Grid item xs={6} style={{alignSelf: 'center'}}>
         <Typography>
@@ -129,10 +129,10 @@ const About = () => (
         </Typography>
       </Grid>
       <Grid item xs={6}>
-        <StyledImage src='/livia.png' width='360' height='450' />
+        <StyledImage src='/livia.png' width='360' height='450' alt='livia picture' />
       </Grid>
       <Grid item xs={6}>
-        <StyledImage src='/keyboard.png' width='852' height='831' />
+        <StyledImage src='/keyboard.png' width='852' height='831' alt='keyboard' />
       </Grid>
       <Grid item xs={6} style={{alignSelf: 'center'}}>
         <Typography>
