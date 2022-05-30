@@ -114,7 +114,7 @@ const CarouselContainer = styled.div`
   scroll-snap-type: x mandatory;
   scroll-padding: 12px 12px;
   overflow-x: scroll;
-  width: 200vw;
+  width: 30vw;
   height: 200px;
   display: inline-block;
   white-space: nowrap;
