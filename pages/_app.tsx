@@ -20,6 +20,8 @@ const MyApp = ({
 }: AppProps & {emotionCache: typeof clientSideEmotionCache}) => (
   <CacheProvider value={emotionCache}>
     <Head>
+      <link rel='manifest' href='/manifest.json' />
+      <link rel='apple-touch-icon' href='/logo.png' />
       <title>Wilson Huang</title>
       <meta charSet='UTF-8' />
       <meta
