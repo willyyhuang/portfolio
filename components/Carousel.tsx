@@ -52,8 +52,10 @@ type CarouselPropType<T> = {
 
 const Carousel = <T,>({items, height, itemRenderer, itemHeight}: CarouselPropType<T>) => (
   <CarouselContainer height={height}>
-    {items.map((item) => (
-      <CarouselItem height={itemHeight}>{itemRenderer(item)}</CarouselItem>
+    {items.map((item, index) => (
+      <CarouselItem key={`carousel-item-${index}`} height={itemHeight}>
+        {itemRenderer(item)}
+      </CarouselItem>
     ))}
   </CarouselContainer>
 )
