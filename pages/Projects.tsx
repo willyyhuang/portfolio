@@ -5,10 +5,6 @@ import {Grid, Link, List, ListItem, ListItemAvatar, ListItemText, Typography} fr
 import Image from 'next/image'
 import styled from 'styled-components'
 
-const Row = styled(Grid)`
-  padding: 32px 0px 32px 0px;
-`
-
 type ProjectData = {
   title: string
   link: string
@@ -23,7 +19,6 @@ type ProjectData = {
   github?: string
 }
 
-// TODO: move these to a DB or something
 const projects: ProjectData[] = [
   {
     title: 'Building Stack',
@@ -69,8 +64,9 @@ const projects: ProjectData[] = [
 const otherProjects: Omit<ProjectData, 'logo' | 'role' | 'dimensions' | 'link'>[] = [
   {
     title: 'portfolio',
-    description: 'My simple portfolio website',
-    techStack: 'React.js, Next.js, MaterialUI, CSS',
+    description:
+      'My simple portfolio website built with Next.js to take advantage of SSG and SEO, hosted with vercel.',
+    techStack: 'React.js, Next.js, MaterialUI, CSS, GraphQL',
     github: 'https://github.com/willyyhuang/portfolio',
   },
   {
@@ -109,6 +105,56 @@ const otherProjects: Omit<ProjectData, 'logo' | 'role' | 'dimensions' | 'link'>[
     github: 'https://github.com/willyyhuang/discordbot',
   },
 ]
+
+const Row = styled(Grid)`
+  padding: 32px 0px 32px 0px;
+`
+
+const CarouselContainer = styled.div`
+  scroll-snap-type: x mandatory;
+  scroll-padding: 12px 12px;
+  overflow-x: scroll;
+  width: 200vw;
+  height: 200px;
+  display: inline-block;
+  white-space: nowrap;
+  overflow-y: hidden;
+  ::-webkit-scrollbar {
+    background-color: #0b1622;
+    width: 2px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #0b1622;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #babac0;
+    border-radius: 16px;
+  }
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+  @media only screen and (max-width: 400px) {
+    height: 100%;
+  }
+`
+
+const CarouselItem = styled.div`
+  scroll-snap-align: start;
+  @media only screen and (max-width: 400px) {
+    width: 80vw;
+    height: 100%;
+  }
+  padding: 12px;
+  width: 30vw;
+  height: 150px;
+  display: inline-block;
+`
+
+const StyledCaption = styled.div`
+  white-space: initial;
+  min-height: 70px;
+`
 
 const Project = () => {
   const getLogo = (project: ProjectData) => (
@@ -182,34 +228,32 @@ const Project = () => {
           Other projects
         </Typography>
       </Row>
-      <Row container>
+      <CarouselContainer>
         {otherProjects.map((project) => (
-          <Grid
-            container
-            item
-            xs={12}
-            style={{
-              border: '2px solid',
-              padding: 16,
-              marginBottom: 24,
-              boxShadow: '5px 5px',
-              borderRadius: 10,
-            }}>
-            <Grid item xs={12}>
-              <Link href={project?.github} underline='none' target='_blank'>
-                {project?.github && <GitHubIcon fontSize='small' style={{marginRight: 6}} />}
-                {project.title}
-              </Link>
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant='caption'>{project.description}</Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant='caption'>{project.techStack}</Typography>
-            </Grid>
-          </Grid>
+          <CarouselItem>
+            <div
+              style={{
+                border: '2px solid',
+                padding: 16,
+                boxShadow: '5px 5px',
+                borderRadius: 10,
+              }}>
+              <div>
+                <Link href={project?.github} underline='none' target='_blank'>
+                  {project?.github && <GitHubIcon fontSize='small' style={{marginRight: 6}} />}
+                  {project.title}
+                </Link>
+              </div>
+              <StyledCaption>
+                <Typography variant='caption'>{project.description}</Typography>
+              </StyledCaption>
+              <div>
+                <Typography variant='caption'>{project.techStack}</Typography>
+              </div>
+            </div>
+          </CarouselItem>
         ))}
-      </Row>
+      </CarouselContainer>
     </>
   )
 }
