@@ -1,3 +1,4 @@
+import Carousel from '@components/Carousel'
 import ComputerIcon from '@mui/icons-material/Computer'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import WorkIcon from '@mui/icons-material/Work'
@@ -19,7 +20,9 @@ type ProjectData = {
   github?: string
 }
 
-const projects: ProjectData[] = [
+type OtherProjectData = Omit<ProjectData, 'logo' | 'role' | 'dimensions' | 'link'>
+
+const projects: Array<ProjectData> = [
   {
     title: 'Building Stack',
     link: 'https://www.buildingstack.com/',
@@ -61,7 +64,7 @@ const projects: ProjectData[] = [
   },
 ]
 
-const otherProjects: Omit<ProjectData, 'logo' | 'role' | 'dimensions' | 'link'>[] = [
+const otherProjects: Array<OtherProjectData> = [
   {
     title: 'portfolio',
     description:
@@ -108,48 +111,6 @@ const otherProjects: Omit<ProjectData, 'logo' | 'role' | 'dimensions' | 'link'>[
 
 const Row = styled(Grid)`
   padding: 32px 0px 32px 0px;
-`
-
-const CarouselContainer = styled.div`
-  scroll-snap-type: x mandatory;
-  scroll-padding: 12px 12px;
-  overflow-x: scroll;
-  width: 30vw;
-  height: 200px;
-  display: inline-block;
-  white-space: nowrap;
-  overflow-y: hidden;
-  ::-webkit-scrollbar {
-    background-color: #0b1622;
-    width: 2px;
-    height: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: #0b1622;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #babac0;
-    border-radius: 16px;
-  }
-  ::-webkit-scrollbar-button {
-    display: none;
-  }
-  @media only screen and (max-width: 400px) {
-    height: 100%;
-    width: 100vw;
-  }
-`
-
-const CarouselItem = styled.div`
-  scroll-snap-align: start;
-  @media only screen and (max-width: 400px) {
-    width: 80vw;
-    height: 100%;
-  }
-  padding: 12px;
-  width: 30vw;
-  height: 150px;
-  display: inline-block;
 `
 
 const StyledCaption = styled.div`
@@ -207,6 +168,29 @@ const Project = () => {
     </List>
   )
 
+  const renderItem = (item: OtherProjectData) => (
+    <div
+      style={{
+        border: '2px solid',
+        padding: 16,
+        boxShadow: '5px 5px',
+        borderRadius: 10,
+      }}>
+      <div>
+        <Link href={item?.github} underline='none' target='_blank'>
+          {item?.github && <GitHubIcon fontSize='small' style={{marginRight: 6}} />}
+          {item.title}
+        </Link>
+      </div>
+      <StyledCaption>
+        <Typography variant='caption'>{item.description}</Typography>
+      </StyledCaption>
+      <div>
+        <Typography variant='caption'>{item.techStack}</Typography>
+      </div>
+    </div>
+  )
+
   return (
     <>
       <Row item xs={12} container justifyContent='center'>
@@ -229,32 +213,7 @@ const Project = () => {
           Other projects
         </Typography>
       </Row>
-      <CarouselContainer>
-        {otherProjects.map((project) => (
-          <CarouselItem>
-            <div
-              style={{
-                border: '2px solid',
-                padding: 16,
-                boxShadow: '5px 5px',
-                borderRadius: 10,
-              }}>
-              <div>
-                <Link href={project?.github} underline='none' target='_blank'>
-                  {project?.github && <GitHubIcon fontSize='small' style={{marginRight: 6}} />}
-                  {project.title}
-                </Link>
-              </div>
-              <StyledCaption>
-                <Typography variant='caption'>{project.description}</Typography>
-              </StyledCaption>
-              <div>
-                <Typography variant='caption'>{project.techStack}</Typography>
-              </div>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContainer>
+      <Carousel height='200px' itemHeight='150px' items={otherProjects} itemRenderer={renderItem} />
     </>
   )
 }
