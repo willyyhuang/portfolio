@@ -136,6 +136,7 @@ const CarouselContainer = styled.div`
   }
   @media only screen and (max-width: 400px) {
     height: 100%;
+    width: 100vw;
   }
 `
 
