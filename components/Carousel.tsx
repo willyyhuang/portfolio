@@ -1,4 +1,7 @@
-import {ReactNode} from 'react'
+import ArrowLeftIcon from '@mui/icons-material/ArrowLeft'
+import ArrowRightIcon from '@mui/icons-material/ArrowRight'
+import {IconButton} from '@mui/material'
+import {ReactNode, useRef} from 'react'
 import styled from 'styled-components'
 
 const CarouselContainer = styled.div<{height: string}>`
@@ -50,15 +53,44 @@ type CarouselPropType<T> = {
   itemRenderer: (item: T) => ReactNode
 }
 
-const Carousel = <T,>({items, height, itemRenderer, itemHeight}: CarouselPropType<T>) => (
-  <CarouselContainer height={height}>
-    {items.map((item, index) => (
-      <CarouselItem key={`carousel-item-${index}`} height={itemHeight}>
-        {itemRenderer(item)}
-      </CarouselItem>
-    ))}
-  </CarouselContainer>
-)
+const Carousel = <T,>({items, height, itemRenderer, itemHeight}: CarouselPropType<T>) => {
+  const ref = useRef<HTMLDivElement>(null)
+  const itemRef = useRef<HTMLDivElement>(null)
+
+  const handleScroll = (position: 'left' | 'right') => {
+    const movePixel =
+      position === 'left'
+        ? -(itemRef?.current?.clientWidth || 0)
+        : itemRef?.current?.clientWidth || 0
+    if (ref?.current) {
+      ref?.current?.scrollTo({
+        left: (ref?.current?.scrollLeft || 0) + movePixel,
+        behavior: 'smooth',
+      })
+    }
+  }
+
+  return (
+    <>
+      <IconButton onClick={() => handleScroll('left')}>
+        <ArrowLeftIcon />
+      </IconButton>
+      <CarouselContainer height={height} id='scroll-container' ref={ref}>
+        {items.map((item, index) => (
+          <CarouselItem
+            key={`carousel-item-${index}`}
+            height={itemHeight}
+            ref={index === 0 ? itemRef : null}>
+            {itemRenderer(item)}
+          </CarouselItem>
+        ))}
+      </CarouselContainer>
+      <IconButton onClick={() => handleScroll('right')}>
+        <ArrowRightIcon />
+      </IconButton>
+    </>
+  )
+}
 
 Carousel.displayName = 'Carousel'
 export default Carousel
