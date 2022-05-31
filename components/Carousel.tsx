@@ -75,7 +75,7 @@ const Carousel = <T,>({items, containerHeight, itemRenderer, itemHeight}: Carous
     }
   }
 
-  if (!items) return null
+  if (items.length === 0) return null
 
   return (
     <>
