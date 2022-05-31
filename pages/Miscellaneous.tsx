@@ -212,7 +212,13 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
       <Grid item container xs={12} justifyContent='center'>
         <FormControlLabel
           label='Carousel'
-          control={<Switch value={isCarousel} onChange={(e) => setIsCarousel(e.target.checked)} />}
+          control={
+            <Switch
+              value={isCarousel}
+              onChange={(e) => setIsCarousel(e.target.checked)}
+              defaultChecked={isCarousel}
+            />
+          }
         />
       </Grid>
       {isCarousel ? (
