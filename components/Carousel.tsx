@@ -5,7 +5,7 @@ import useViewport from '@utils/useViewport'
 import {ReactNode, useRef} from 'react'
 import styled from 'styled-components'
 
-const CarouselContainer = styled.div<{height: string}>`
+const CarouselContainer = styled.div<{height?: string}>`
   scroll-snap-type: x mandatory;
   scroll-padding: 0px;
   overflow-x: scroll;
@@ -36,7 +36,7 @@ const CarouselContainer = styled.div<{height: string}>`
   }
 `
 
-const CarouselItem = styled.div<{height: string}>`
+const CarouselItem = styled.div<{height?: string}>`
   scroll-snap-align: start;
   @media only screen and (max-width: 400px) {
     width: 80vw;
