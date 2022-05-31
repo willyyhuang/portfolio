@@ -11,6 +11,7 @@ const rawImageUrlPrefix =
 const useAnimeGirlProgrammingBook = (animeGirlProgramming: any) => {
     const [selectedProgrammingLanguage, setSelectedProgrammingLanguage] = useState<any>()
     const [currentImage, setCurrentImage] = useState<string>()
+    const [currentFolderFiles, setCurrentFolderFiles] = useState<Array<string>>([])
 
     const formattedData = animeGirlProgramming?.repository?.object?.entries.map((folder: any) => {
       const {entries} = folder.object
@@ -27,6 +28,7 @@ const useAnimeGirlProgrammingBook = (animeGirlProgramming: any) => {
         const directory = entries.find((entry: FolderEntry) => entry.folderName === selectedProgrammingLanguage)
         if (directory) {
             const {files} = directory
+            setCurrentFolderFiles(files)
             setCurrentImage(files[Math.floor(Math.random() * files.length)])
         }
     }
@@ -44,6 +46,7 @@ const useAnimeGirlProgrammingBook = (animeGirlProgramming: any) => {
         setSelectedProgrammingLanguage,
         refreshImage,
         currentImage,
+        currentFolderFiles,
     }
 }
 

@@ -1,4 +1,5 @@
 import {gql} from '@apollo/client'
+import Carousel from '@components/Carousel'
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined'
 import RefreshIcon from '@mui/icons-material/Refresh'
 import {Avatar, Button, Divider, Grid, MenuItem, Select, TextField, Typography} from '@mui/material'
@@ -89,7 +90,10 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
     setSelectedProgrammingLanguage,
     refreshImage,
     currentImage,
+    currentFolderFiles,
   } = useAnimeGirlProgrammingBook(animeGirlProgramming)
+
+  const handleItemRender = (item: string) => <StyledImg src={item} height='100%' />
 
   return (
     <Grid container rowSpacing={4}>
@@ -203,6 +207,14 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
           <StyledImg src={currentImage} />
         </Grid>
       )}
+      <Grid item container xs={12} justifyContent='center'>
+        <Carousel<string>
+          items={currentFolderFiles}
+          containerHeight='400px'
+          itemHeight='400px'
+          itemRenderer={handleItemRender}
+        />
+      </Grid>
     </Grid>
   )
 }

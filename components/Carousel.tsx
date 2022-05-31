@@ -7,13 +7,14 @@ import styled from 'styled-components'
 
 const CarouselContainer = styled.div<{height: string}>`
   scroll-snap-type: x mandatory;
-  scroll-padding: 12px 12px;
+  scroll-padding: 0px;
   overflow-x: scroll;
   width: 30vw;
   height: ${(props) => props.height};
   display: inline-block;
   white-space: nowrap;
   overflow-y: hidden;
+  text-align: center;
   ::-webkit-scrollbar {
     background-color: #0b1622;
     width: 2px;
@@ -59,7 +60,7 @@ const Carousel = <T,>({items, containerHeight, itemRenderer, itemHeight}: Carous
   const itemRef = useRef<HTMLDivElement>(null)
   const {width} = useViewport()
 
-  const isCompact = width < 600
+  const isCompact = width && width < 600
 
   const handleScroll = (position: 'left' | 'right') => {
     const movePixel =
@@ -73,6 +74,8 @@ const Carousel = <T,>({items, containerHeight, itemRenderer, itemHeight}: Carous
       })
     }
   }
+
+  if (!items) return null
 
   return (
     <>
