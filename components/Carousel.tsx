@@ -45,12 +45,13 @@ const CarouselItem = styled.div<{height: string}>`
   width: 30vw;
   height: ${(props) => props.height};
   display: inline-block;
+  vertical-align: middle;
 `
 
 type CarouselPropType<T> = {
   items: T[]
-  containerHeight: string
-  itemHeight: string
+  containerHeight?: string
+  itemHeight?: string
   itemRenderer: (item: T) => ReactNode
 }
 

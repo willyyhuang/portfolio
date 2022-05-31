@@ -7,6 +7,7 @@ import {
   Button,
   Divider,
   FormControlLabel,
+  FormGroup,
   Grid,
   MenuItem,
   Select,
@@ -106,7 +107,9 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
     currentFolderFiles,
   } = useAnimeGirlProgrammingBook(animeGirlProgramming)
 
-  const handleItemRender = (item: string) => <img src={item} height='100%' />
+  const handleItemRender = (item: string) => (
+    <img src={item} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+  )
 
   return (
     <Grid container rowSpacing={4}>
@@ -210,25 +213,22 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
         {!isCarousel && <StyledIcon onClick={refreshImage} />}
       </Grid>
       <Grid item container xs={12} justifyContent='center'>
-        <FormControlLabel
-          label='Carousel'
-          control={
-            <Switch
-              value={isCarousel}
-              onChange={(e) => setIsCarousel(e.target.checked)}
-              defaultChecked={isCarousel}
-            />
-          }
-        />
+        <FormGroup>
+          <FormControlLabel
+            label='Carousel'
+            control={
+              <Switch
+                value={isCarousel}
+                onChange={(e) => setIsCarousel(e.target.checked)}
+                defaultChecked={isCarousel}
+              />
+            }
+          />
+        </FormGroup>
       </Grid>
       {isCarousel ? (
         <Grid item container xs={12} justifyContent='center'>
-          <Carousel<string>
-            items={currentFolderFiles}
-            containerHeight='400px'
-            itemHeight='400px'
-            itemRenderer={handleItemRender}
-          />
+          <Carousel<string> items={currentFolderFiles} itemRenderer={handleItemRender} />
         </Grid>
       ) : (
         currentImage && (
