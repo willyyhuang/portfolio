@@ -1,6 +1,7 @@
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight'
 import {IconButton} from '@mui/material'
+import useViewport from '@utils/useViewport'
 import {ReactNode, useRef} from 'react'
 import styled from 'styled-components'
 
@@ -48,14 +49,17 @@ const CarouselItem = styled.div<{height: string}>`
 
 type CarouselPropType<T> = {
   items: T[]
-  height: string
+  containerHeight: string
   itemHeight: string
   itemRenderer: (item: T) => ReactNode
 }
 
-const Carousel = <T,>({items, height, itemRenderer, itemHeight}: CarouselPropType<T>) => {
+const Carousel = <T,>({items, containerHeight, itemRenderer, itemHeight}: CarouselPropType<T>) => {
   const ref = useRef<HTMLDivElement>(null)
   const itemRef = useRef<HTMLDivElement>(null)
+  const {width} = useViewport()
+
+  const isCompact = width < 600
 
   const handleScroll = (position: 'left' | 'right') => {
     const movePixel =
@@ -72,10 +76,12 @@ const Carousel = <T,>({items, height, itemRenderer, itemHeight}: CarouselPropTyp
 
   return (
     <>
-      <IconButton onClick={() => handleScroll('left')}>
-        <ArrowLeftIcon />
-      </IconButton>
-      <CarouselContainer height={height} id='scroll-container' ref={ref}>
+      {!isCompact && (
+        <IconButton onClick={() => handleScroll('left')}>
+          <ArrowLeftIcon />
+        </IconButton>
+      )}
+      <CarouselContainer height={containerHeight} id='scroll-container' ref={ref}>
         {items.map((item, index) => (
           <CarouselItem
             key={`carousel-item-${index}`}
@@ -85,9 +91,11 @@ const Carousel = <T,>({items, height, itemRenderer, itemHeight}: CarouselPropTyp
           </CarouselItem>
         ))}
       </CarouselContainer>
-      <IconButton onClick={() => handleScroll('right')}>
-        <ArrowRightIcon />
-      </IconButton>
+      {!isCompact && (
+        <IconButton onClick={() => handleScroll('right')}>
+          <ArrowRightIcon />
+        </IconButton>
+      )}
     </>
   )
 }

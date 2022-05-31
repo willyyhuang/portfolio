@@ -213,7 +213,12 @@ const Project = () => {
           Other projects
         </Typography>
       </Row>
-      <Carousel height='200px' itemHeight='150px' items={otherProjects} itemRenderer={renderItem} />
+      <Carousel<OtherProjectData>
+        containerHeight='200px'
+        itemHeight='150px'
+        items={otherProjects}
+        itemRenderer={renderItem}
+      />
     </>
   )
 }
