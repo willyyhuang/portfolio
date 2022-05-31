@@ -40,7 +40,6 @@ const CarouselItem = styled.div<{height: string}>`
   scroll-snap-align: start;
   @media only screen and (max-width: 400px) {
     width: 80vw;
-    height: 100%;
   }
   padding: 12px;
   width: 30vw;

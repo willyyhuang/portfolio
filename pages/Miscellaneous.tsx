@@ -2,7 +2,18 @@ import {gql} from '@apollo/client'
 import Carousel from '@components/Carousel'
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined'
 import RefreshIcon from '@mui/icons-material/Refresh'
-import {Avatar, Button, Divider, Grid, MenuItem, Select, TextField, Typography} from '@mui/material'
+import {
+  Avatar,
+  Button,
+  Divider,
+  FormControlLabel,
+  Grid,
+  MenuItem,
+  Select,
+  Switch,
+  TextField,
+  Typography,
+} from '@mui/material'
 import useAnimeGirlProgrammingBook from '@utils/useAnimeGirlProgrammingBook'
 import Image from 'next/image'
 import {getActivity} from 'pages/api/activity'
@@ -84,6 +95,8 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
     }
   }
   const [activity, setActivity] = useState<{activity: string; type: string}>()
+  const [isCarousel, setIsCarousel] = useState<boolean>(true)
+
   const {
     entries,
     selectedProgrammingLanguage,
@@ -93,7 +106,7 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
     currentFolderFiles,
   } = useAnimeGirlProgrammingBook(animeGirlProgramming)
 
-  const handleItemRender = (item: string) => <StyledImg src={item} height='100%' />
+  const handleItemRender = (item: string) => <img src={item} height='100%' />
 
   return (
     <Grid container rowSpacing={4}>
@@ -194,27 +207,36 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
         </StyledSelect>
       </Grid>
       <Grid item xs={4}>
-        <StyledIcon onClick={refreshImage} />
+        {!isCarousel && <StyledIcon onClick={refreshImage} />}
       </Grid>
-      {currentImage && (
-        <Grid
-          item
-          container
-          xs={12}
-          justifyContent='center'
-          onClick={refreshImage}
-          sx={{cursor: 'pointer'}}>
-          <StyledImg src={currentImage} />
-        </Grid>
-      )}
       <Grid item container xs={12} justifyContent='center'>
-        <Carousel<string>
-          items={currentFolderFiles}
-          containerHeight='400px'
-          itemHeight='400px'
-          itemRenderer={handleItemRender}
+        <FormControlLabel
+          label='Carousel'
+          control={<Switch value={isCarousel} onChange={(e) => setIsCarousel(e.target.checked)} />}
         />
       </Grid>
+      {isCarousel ? (
+        <Grid item container xs={12} justifyContent='center'>
+          <Carousel<string>
+            items={currentFolderFiles}
+            containerHeight='400px'
+            itemHeight='400px'
+            itemRenderer={handleItemRender}
+          />
+        </Grid>
+      ) : (
+        currentImage && (
+          <Grid
+            item
+            container
+            xs={12}
+            justifyContent='center'
+            onClick={refreshImage}
+            sx={{cursor: 'pointer'}}>
+            <StyledImg src={currentImage} />
+          </Grid>
+        )
+      )}
     </Grid>
   )
 }
