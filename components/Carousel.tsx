@@ -76,10 +76,11 @@ const Carousel = <T,>({items, containerHeight, itemRenderer, itemHeight}: Carous
   }
 
   if (items.length === 0) return null
+  const showArrow = !isCompact && items.length > 1
 
   return (
     <>
-      {!isCompact && (
+      {showArrow && (
         <IconButton onClick={() => handleScroll('left')}>
           <ArrowLeftIcon />
         </IconButton>
@@ -94,7 +95,7 @@ const Carousel = <T,>({items, containerHeight, itemRenderer, itemHeight}: Carous
           </CarouselItem>
         ))}
       </CarouselContainer>
-      {!isCompact && (
+      {showArrow && (
         <IconButton onClick={() => handleScroll('right')}>
           <ArrowRightIcon />
         </IconButton>
