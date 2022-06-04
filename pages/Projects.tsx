@@ -50,6 +50,18 @@ const projects: Array<ProjectData> = [
     github: 'https://github.com/DnD-Montreal/session-tome',
   },
   {
+    title: 'Mochai.info',
+    link: 'https://mochai.info/',
+    description:
+      'Mochai.info is a Lost Ark community website to promote the guild Mochi and to help guild managers to display data.',
+    techStack: 'Next.js, React, Typescript, GitHub, Vercel, MaterialUI, GoogleApis, Webhook',
+    logo: '/mochi-banner.png',
+    dimensions: {
+      width: '479',
+      height: '145',
+    },
+  },
+  {
     title: 'Cycl.io',
     link: 'https://github.com/m-triassi/cycl.io',
     description:
@@ -132,7 +144,12 @@ const Project = () => {
   const getDescription = (project: ProjectData) => (
     <List>
       <ListItem>
-        <Link variant='h4' href={project.link} style={{fontWeight: 600}} underline='none'>
+        <Link
+          variant='h4'
+          href={project.link}
+          style={{fontWeight: 600}}
+          underline='none'
+          target='_blank'>
           {project.title}
         </Link>
       </ListItem>
