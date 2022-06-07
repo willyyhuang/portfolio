@@ -1,5 +1,6 @@
 import {Box, Button, Divider, Grid, Modal, Typography} from '@mui/material'
 import {saveAs} from 'file-saver'
+import Link from 'next/link'
 import {useState} from 'react'
 import styled from 'styled-components'
 
@@ -45,7 +46,7 @@ const Contact = () => {
               <Typography>LinkedIn</Typography>
             </Grid>
             <Grid item xs={6}>
-              <Typography>wlsun</Typography>
+              <Link href='https://www.linkedin.com/in/wlsun/'>wlsun</Link>
             </Grid>
             <Grid item xs={6}>
               <Typography>Resume</Typography>
@@ -55,8 +56,14 @@ const Contact = () => {
                 color='info'
                 onClick={() => setIsModalOpen(true)}
                 sx={{padding: 0, textTransform: 'none', fontWeight: 1000}}>
-                Click me!
+                Download
               </Button>
+            </Grid>
+            <Grid item xs={6}>
+              <Typography>Other links</Typography>
+            </Grid>
+            <Grid item xs={6}>
+              <Link href='/Links'>My links</Link>
             </Grid>
           </Grid>
         </StyledContactBox>

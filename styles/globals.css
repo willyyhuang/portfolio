@@ -10,6 +10,11 @@ body {
   height: 100%;
 }
 
+a {
+  color: #0096d6;
+  text-decoration: none;
+}
+
 /* total width */
 body::-webkit-scrollbar {
   background-color: #0B1622;
