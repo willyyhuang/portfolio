@@ -4,6 +4,9 @@ import styled from 'styled-components'
 
 const StyledLink = styled.a`
   width: 50%;
+  @media only screen and (max-width: 1200px) {
+    width: 80%;
+  }
   text-align: center;
   text-decoration: none;
 `
@@ -40,7 +43,7 @@ const LINKS_TO_DISPLAY: Array<LinkData> = [
 const Links = () => (
   <Grid container>
     {LINKS_TO_DISPLAY.map((link) => (
-      <Grid item container justifyContent='center'>
+      <Grid item container justifyContent='center' key={link.name}>
         <StyledLink href={link.url} target='_blank' rel='noreferrer'>
           <Button
             fullWidth
