@@ -11,6 +11,19 @@ const StyledLink = styled.a`
   text-decoration: none;
 `
 
+const AnimatedItem = styled(Grid)<{second: string}>`
+  animation: ${(props) => `fadeIn ${props.second}`};
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+`
+
 type LinkData = {
   url: string
   name: string
@@ -42,8 +55,8 @@ const LINKS_TO_DISPLAY: Array<LinkData> = [
 
 const Links = () => (
   <Grid container>
-    {LINKS_TO_DISPLAY.map((link) => (
-      <Grid item container justifyContent='center' key={link.name}>
+    {LINKS_TO_DISPLAY.map((link, index) => (
+      <AnimatedItem item container justifyContent='center' key={link.name} second={`${index * 2}s`}>
         <StyledLink href={link.url} target='_blank' rel='noreferrer'>
           <Button
             fullWidth
@@ -58,7 +71,7 @@ const Links = () => (
             {link.name}
           </Button>
         </StyledLink>
-      </Grid>
+      </AnimatedItem>
     ))}
   </Grid>
 )
