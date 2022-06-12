@@ -1,27 +1,23 @@
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight'
-import {IconButton} from '@mui/material'
+import {Grid, IconButton} from '@mui/material'
 import useViewport from '@utils/useViewport'
-import {ReactNode, useRef} from 'react'
+import {ReactNode, useEffect, useRef} from 'react'
 import styled from 'styled-components'
 
 const CarouselContainer = styled.div<{height?: string}>`
   scroll-snap-type: x mandatory;
   scroll-padding: 0px;
   overflow-x: scroll;
-  width: 30vw;
+  width: 100%;
   height: ${(props) => props.height};
   display: inline-block;
   white-space: nowrap;
   overflow-y: hidden;
   text-align: center;
   ::-webkit-scrollbar {
-    background-color: #0b1622;
     width: 2px;
     height: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: #0b1622;
   }
   ::-webkit-scrollbar-thumb {
     background-color: #babac0;
@@ -32,20 +28,24 @@ const CarouselContainer = styled.div<{height?: string}>`
   }
   @media only screen and (max-width: 400px) {
     height: 100%;
-    width: 100vw;
+    width: 100%;
+    ::-webkit-scrollbar {
+      width: 0px;
+      height: 0px;
+    }
   }
 `
 
 const CarouselItem = styled.div<{height?: string}>`
-  scroll-snap-align: start;
+  scroll-snap-align: center;
   @media only screen and (max-width: 400px) {
-    width: 80vw;
+    width: 100%;
   }
   padding: 12px;
-  width: 30vw;
   height: ${(props) => props.height};
   display: inline-block;
   vertical-align: middle;
+  width: 50%;
 `
 
 type CarouselPropType<T> = {
@@ -62,11 +62,19 @@ const Carousel = <T,>({items, containerHeight, itemRenderer, itemHeight}: Carous
 
   const isCompact = width && width < 600
 
-  const handleScroll = (position: 'left' | 'right') => {
-    const movePixel =
-      position === 'left'
-        ? -(itemRef?.current?.clientWidth || 0)
-        : itemRef?.current?.clientWidth || 0
+  const handleScroll = (position: 'left' | 'right' | 'middle') => {
+    let movePixel
+    switch (position) {
+      case 'left':
+        movePixel = -(itemRef?.current?.clientWidth || 0)
+        break
+      case 'right':
+        movePixel = itemRef?.current?.clientWidth || 0
+        break
+      case 'middle':
+      default:
+        movePixel = (itemRef?.current?.clientWidth || 0) * 4
+    }
     if (ref?.current) {
       ref?.current?.scrollTo({
         left: (ref?.current?.scrollLeft || 0) + movePixel,
@@ -75,32 +83,42 @@ const Carousel = <T,>({items, containerHeight, itemRenderer, itemHeight}: Carous
     }
   }
 
+  useEffect(() => {
+    handleScroll('middle')
+  }, [])
+
   if (items.length === 0) return null
   const showArrow = !isCompact && items.length > 1
 
   return (
-    <>
+    <Grid container>
       {showArrow && (
-        <IconButton onClick={() => handleScroll('left')}>
-          <ArrowLeftIcon />
-        </IconButton>
+        <Grid item xs={1} style={{alignSelf: 'center'}}>
+          <IconButton onClick={() => handleScroll('left')}>
+            <ArrowLeftIcon />
+          </IconButton>
+        </Grid>
       )}
-      <CarouselContainer height={containerHeight} id='scroll-container' ref={ref}>
-        {items.map((item, index) => (
-          <CarouselItem
-            key={`carousel-item-${index}`}
-            height={itemHeight}
-            ref={index === 0 ? itemRef : null}>
-            {itemRenderer(item)}
-          </CarouselItem>
-        ))}
-      </CarouselContainer>
+      <Grid item xs={showArrow ? 10 : 12}>
+        <CarouselContainer height={containerHeight} id='scroll-container' ref={ref}>
+          {items.map((item, index) => (
+            <CarouselItem
+              key={`carousel-item-${index}`}
+              height={itemHeight}
+              ref={index === 0 ? itemRef : null}>
+              {itemRenderer(item)}
+            </CarouselItem>
+          ))}
+        </CarouselContainer>
+      </Grid>
       {showArrow && (
-        <IconButton onClick={() => handleScroll('right')}>
-          <ArrowRightIcon />
-        </IconButton>
+        <Grid item xs={1} style={{alignSelf: 'center'}}>
+          <IconButton onClick={() => handleScroll('right')}>
+            <ArrowRightIcon />
+          </IconButton>
+        </Grid>
       )}
-    </>
+    </Grid>
   )
 }
 

@@ -27,6 +27,20 @@ const StyledContent = styled.div`
   margin: 32px auto 0px auto;
 `
 
+const AnimatedContent = styled.div`
+  animation: fadeIn 2s;
+  padding: 24px;
+  width: 100%;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+`
+
 const LayoutWrapper = styled.div`
   min-height: 90vh;
 `
@@ -90,7 +104,8 @@ const Layout = ({children}: LayoutProps) => {
       </StyledHeader>
       <StyledContent>
         <Grid container justifyContent='center'>
-          {loading ? <CircularProgress /> : children}
+          {loading && <CircularProgress />}
+          {!loading && <AnimatedContent>{children}</AnimatedContent>}
         </Grid>
       </StyledContent>
       <StyledFooter>
