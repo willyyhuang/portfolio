@@ -2,7 +2,7 @@ import ArrowLeftIcon from '@mui/icons-material/ArrowLeft'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight'
 import {Grid, IconButton} from '@mui/material'
 import useViewport from '@utils/useViewport'
-import {ReactNode, useEffect, useRef} from 'react'
+import {ReactNode, useRef} from 'react'
 import styled from 'styled-components'
 
 const CarouselContainer = styled.div<{height?: string}>`
@@ -82,10 +82,6 @@ const Carousel = <T,>({items, containerHeight, itemRenderer, itemHeight}: Carous
       })
     }
   }
-
-  useEffect(() => {
-    handleScroll('middle')
-  }, [])
 
   if (items.length === 0) return null
   const showArrow = !isCompact && items.length > 1
