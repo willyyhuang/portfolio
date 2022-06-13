@@ -95,7 +95,7 @@ const learnings: SkillData[] = [
 
 const About = () => (
   <>
-    <Grid container spacing={6} style={{marginBottom: 32}}>
+    <Grid container spacing={8} style={{marginBottom: 32}}>
       <Grid item container xs={12} justifyContent='center'>
         <Typography>
           Hi! Welcome to my portfolio website! I am Wilson, a Software Engineer specialized in

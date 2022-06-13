@@ -37,6 +37,18 @@ const projects: Array<ProjectData> = [
     },
   },
   {
+    title: 'Mochai.info',
+    link: 'https://mochai.info/',
+    description:
+      'Mochai.info is a Lost Ark community website to promote the guild Mochi and to help guild managers to display data.',
+    techStack: 'Next.js, React, Typescript, GitHub, Vercel, MaterialUI, GoogleApis, Webhook',
+    logo: '/mochi-banner.png',
+    dimensions: {
+      width: '479',
+      height: '145',
+    },
+  },
+  {
     title: 'Session Tome',
     link: 'https://session-tome.dndmtl.com/',
     description:
@@ -48,18 +60,6 @@ const projects: Array<ProjectData> = [
       height: '200',
     },
     github: 'https://github.com/DnD-Montreal/session-tome',
-  },
-  {
-    title: 'Mochai.info',
-    link: 'https://mochai.info/',
-    description:
-      'Mochai.info is a Lost Ark community website to promote the guild Mochi and to help guild managers to display data.',
-    techStack: 'Next.js, React, Typescript, GitHub, Vercel, MaterialUI, GoogleApis, Webhook',
-    logo: '/mochi-banner.png',
-    dimensions: {
-      width: '479',
-      height: '145',
-    },
   },
   {
     title: 'Cycl.io',
@@ -216,7 +216,7 @@ const Project = () => {
         </Typography>
       </Row>
       {projects.map((project, index) => (
-        <Row container item xs={12} spacing={4} key={project.title}>
+        <Row container item xs={12} spacing={4} key={project.title} style={{marginBottom: 36}}>
           <Grid item container xs={12} md={6} justifyContent='end'>
             {index % 2 === 0 ? getLogo(project) : getDescription(project)}
           </Grid>
@@ -229,8 +229,8 @@ const Project = () => {
         <Typography variant='h4' style={{fontWeight: 600}}>
           Other projects
         </Typography>
+        <Carousel<OtherProjectData> items={otherProjects} itemRenderer={renderItem} />
       </Row>
-      <Carousel<OtherProjectData> items={otherProjects} itemRenderer={renderItem} />
     </>
   )
 }

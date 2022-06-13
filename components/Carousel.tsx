@@ -14,7 +14,6 @@ const CarouselContainer = styled.div<{height?: string}>`
   display: inline-block;
   white-space: nowrap;
   overflow-y: hidden;
-  text-align: center;
   ::-webkit-scrollbar {
     width: 2px;
     height: 8px;
@@ -45,7 +44,7 @@ const CarouselItem = styled.div<{height?: string}>`
   height: ${(props) => props.height};
   display: inline-block;
   vertical-align: middle;
-  width: 50%;
+  width: 40%;
 `
 
 type CarouselPropType<T> = {
@@ -95,7 +94,7 @@ const Carousel = <T,>({items, containerHeight, itemRenderer, itemHeight}: Carous
           </IconButton>
         </Grid>
       )}
-      <Grid item xs={showArrow ? 10 : 12}>
+      <Grid container justifyContent='center' item xs={showArrow ? 10 : 12}>
         <CarouselContainer height={containerHeight} id='scroll-container' ref={ref}>
           {items.map((item, index) => (
             <CarouselItem
