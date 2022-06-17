@@ -37,7 +37,7 @@ const CarouselContainer = styled.div<{height?: string}>`
 const CarouselItem = styled.div<{height?: string}>`
   scroll-snap-align: center;
   @media only screen and (max-width: 400px) {
-    width: 80%;
+    width: 100%;
   }
   padding: 12px;
   height: ${(props) => props.height};

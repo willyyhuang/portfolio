@@ -15,6 +15,9 @@ import styled from 'styled-components'
 
 const StyledImage = styled(Image)`
   border-radius: 10px;
+  @media only screen and (max-width: 400px) {
+    width: 100%;
+  }
 `
 
 type SkillData = {
@@ -116,8 +119,8 @@ const About = () => (
       <Grid item container xs={12} justifyContent='center'>
         <Typography variant='h4'>Hobbies</Typography>
       </Grid>
-      <Grid item xs={6}>
-        <StyledImage src={coffee} alt='coffee' />
+      <Grid item xs={6} style={{alignSelf: 'center'}}>
+        <StyledImage layout='responsive' src={coffee} alt='coffee' />
       </Grid>
       <Grid item xs={6} style={{alignSelf: 'center'}}>
         <Typography>
@@ -131,11 +134,11 @@ const About = () => (
           playing video games are also some of my favorite pastimes.
         </Typography>
       </Grid>
-      <Grid item xs={6}>
-        <StyledImage src={livia} alt='livia picture' />
+      <Grid item xs={6} style={{alignSelf: 'center'}}>
+        <StyledImage layout='responsive' src={livia} alt='livia picture' />
       </Grid>
-      <Grid item xs={6}>
-        <StyledImage src={keyboard} alt='keyboard' />
+      <Grid item xs={6} style={{alignSelf: 'center'}}>
+        <StyledImage layout='responsive' src={keyboard} alt='keyboard' />
       </Grid>
       <Grid item xs={6} style={{alignSelf: 'center'}}>
         <Typography>

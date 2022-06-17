@@ -10,6 +10,13 @@ import sessionTomeLogo from '@public/projects/sessionTomeLogo.png'
 import Image from 'next/image'
 import styled from 'styled-components'
 
+const StyledImage = styled(Image)`
+  border-radius: 10px;
+  @media only screen and (max-width: 400px) {
+    width: 100%;
+  }
+`
+
 type ProjectData = {
   title: string
   link: string
@@ -115,9 +122,7 @@ const StyledCaption = styled.div`
 `
 
 const Project = () => {
-  const getLogo = (project: ProjectData) => (
-    <Image alt={project.title} layout='fixed' src={project.logo} style={{borderRadius: 10}} />
-  )
+  const getLogo = (project: ProjectData) => <StyledImage alt={project.title} src={project.logo} />
 
   const getDescription = (project: ProjectData) => (
     <List>
