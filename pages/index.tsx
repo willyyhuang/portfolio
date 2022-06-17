@@ -7,6 +7,9 @@ import {
   ListItemText,
   Typography,
 } from '@mui/material'
+import coffee from '@public/coffee.png'
+import keyboard from '@public/keyboard.png'
+import livia from '@public/livia.png'
 import Image from 'next/image'
 import styled from 'styled-components'
 
@@ -22,74 +25,74 @@ type SkillData = {
 const skills: SkillData[] = [
   {
     name: 'React.js',
-    logo: '/reactLogo.png',
+    logo: '/skills/reactLogo.png',
   },
   {
     name: 'Redux.js',
-    logo: '/reduxLogo.png',
+    logo: '/skills/reduxLogo.png',
   },
   {
     name: 'Typescript',
-    logo: '/tsLogo.svg',
+    logo: '/skills/tsLogo.svg',
   },
   {
     name: 'Node.js',
-    logo: '/nodeLogo.png',
+    logo: '/skills/nodeLogo.png',
   },
   {
     name: 'Next.js',
-    logo: '/nextjsLogo.png',
+    logo: '/skills/nextjsLogo.png',
   },
   {
     name: 'Storybook.js',
-    logo: '/storybookLogo.png',
+    logo: '/skills/storybookLogo.png',
   },
   {
     name: 'Webpack',
-    logo: '/webpackLogo.png',
+    logo: '/skills/webpackLogo.png',
   },
   {
     name: 'Cypress',
-    logo: '/cypressLogo.png',
+    logo: '/skills/cypressLogo.png',
   },
   {
     name: 'Python',
-    logo: '/pythonLogo.png',
+    logo: '/skills/pythonLogo.png',
   },
   {
     name: 'Git',
-    logo: '/gitLogo.png',
+    logo: '/skills/gitLogo.png',
   },
   {
     name: 'Microsoft Azure',
-    logo: '/azureLogo.png',
+    logo: '/skills/azureLogo.png',
   },
 ]
 
 const learnings: SkillData[] = [
   {
     name: 'Docker',
-    logo: '/dockerLogo.png',
+    logo: '/skills/dockerLogo.png',
   },
   {
     name: 'AWS',
-    logo: '/awsLogo.svg',
+    logo: '/skills/awsLogo.svg',
   },
   {
     name: 'Vite',
-    logo: '/viteLogo.svg',
+    logo: '/skills/viteLogo.svg',
   },
   {
     name: 'Express.js',
-    logo: '/expressjsLogo.png',
+    logo: '/skills/expressjsLogo.png',
   },
   {
     name: 'Latex/Overleaf',
-    logo: '/overleafLogo.png',
+    logo: '/skills/overleafLogo.png',
   },
   {
     name: 'GraphQL',
-    logo: '/graphqlLogo.png',
+    logo: '/skills/graphqlLogo.png',
   },
 ]
 
@@ -114,7 +117,7 @@ const About = () => (
         <Typography variant='h4'>Hobbies</Typography>
       </Grid>
       <Grid item xs={6}>
-        <StyledImage src='/coffee.png' width='900' height='500' alt='coffee' />
+        <StyledImage src={coffee} alt='coffee' />
       </Grid>
       <Grid item xs={6} style={{alignSelf: 'center'}}>
         <Typography>
@@ -129,10 +132,10 @@ const About = () => (
         </Typography>
       </Grid>
       <Grid item xs={6}>
-        <StyledImage src='/livia.png' width='360' height='450' alt='livia picture' />
+        <StyledImage src={livia} alt='livia picture' />
       </Grid>
       <Grid item xs={6}>
-        <StyledImage src='/keyboard.png' width='852' height='831' alt='keyboard' />
+        <StyledImage src={keyboard} alt='keyboard' />
       </Grid>
       <Grid item xs={6} style={{alignSelf: 'center'}}>
         <Typography>

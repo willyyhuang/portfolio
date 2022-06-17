@@ -3,6 +3,10 @@ import ComputerIcon from '@mui/icons-material/Computer'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import WorkIcon from '@mui/icons-material/Work'
 import {Grid, Link, List, ListItem, ListItemAvatar, ListItemText, Typography} from '@mui/material'
+import bstkLogo from '@public/projects/bstkLogo.png'
+import cyclioLogo from '@public/projects/cyclio.png'
+import mochiLogo from '@public/projects/mochi-banner.png'
+import sessionTomeLogo from '@public/projects/sessionTomeLogo.png'
 import Image from 'next/image'
 import styled from 'styled-components'
 
@@ -11,12 +15,8 @@ type ProjectData = {
   link: string
   description: string
   techStack: string
-  logo: string
+  logo: any
   role?: string
-  dimensions: {
-    width: string
-    height: string
-  }
   github?: string
 }
 
@@ -29,12 +29,8 @@ const projects: Array<ProjectData> = [
     description:
       'Building Stack is a cloud-based property management software designed to help Canadian building owners get the most out of their real estate portfolio',
     techStack: 'React, Typescript, Redux, Azure, Ant Design',
-    logo: '/bstkLogo.png',
+    logo: bstkLogo,
     role: 'Front-end Developer',
-    dimensions: {
-      width: '300',
-      height: '300',
-    },
   },
   {
     title: 'Mochai.info',
@@ -42,11 +38,7 @@ const projects: Array<ProjectData> = [
     description:
       'Mochai.info is a Lost Ark community website to promote the guild Mochi and to help guild managers to display data.',
     techStack: 'Next.js, React, Typescript, GitHub, Vercel, MaterialUI, GoogleApis, Webhook',
-    logo: '/mochi-banner.png',
-    dimensions: {
-      width: '479',
-      height: '145',
-    },
+    logo: mochiLogo,
   },
   {
     title: 'Session Tome',
@@ -54,11 +46,7 @@ const projects: Array<ProjectData> = [
     description:
       'A web application for managing Dungeons and Dragons Adventurer League Characters.',
     techStack: 'React, Typescript, GitHub, Laravel, AWS, MaterialUI',
-    logo: '/sessionTomeLogo.png',
-    dimensions: {
-      width: '900',
-      height: '200',
-    },
+    logo: sessionTomeLogo,
     github: 'https://github.com/DnD-Montreal/session-tome',
   },
   {
@@ -67,11 +55,7 @@ const projects: Array<ProjectData> = [
     description:
       'A web-based ERP system for managing the production and sale of imaginary bikes, to imaginary people.',
     techStack: 'React, Typescript, GitHub, Laravel, Ant Design',
-    logo: '/cyclio.png',
-    dimensions: {
-      width: '500',
-      height: '200',
-    },
+    logo: cyclioLogo,
     github: 'https://github.com/m-triassi/cycl.io',
   },
 ]
@@ -132,13 +116,7 @@ const StyledCaption = styled.div`
 
 const Project = () => {
   const getLogo = (project: ProjectData) => (
-    <Image
-      alt={project.title}
-      src={project.logo}
-      width={project.dimensions.width}
-      height={project.dimensions.height}
-      style={{borderRadius: 10}}
-    />
+    <Image alt={project.title} layout='fixed' src={project.logo} style={{borderRadius: 10}} />
   )
 
   const getDescription = (project: ProjectData) => (

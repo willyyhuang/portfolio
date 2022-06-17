@@ -1,4 +1,8 @@
 import {Button, Grid} from '@mui/material'
+import amazonIcon from '@public/links/amazon-icon.png'
+import aniListIcon from '@public/links/anilist-icon.png'
+import kofiIcon from '@public/links/kofi.png'
+import paypalIcon from '@public/links/paypal-icon.webp'
 import Image from 'next/image'
 import styled from 'styled-components'
 
@@ -27,29 +31,29 @@ const AnimatedItem = styled(Grid)<{second: string}>`
 type LinkData = {
   url: string
   name: string
-  logoSrc: string
+  logoSrc: any
 }
 
 const LINKS_TO_DISPLAY: Array<LinkData> = [
   {
     url: 'https://www.amazon.ca/hz/wishlist/ls/2YBR1A54E7FUX?ref_=wl_share',
     name: 'Amazon Wishlist',
-    logoSrc: '/amazon-icon.png',
+    logoSrc: amazonIcon,
   },
   {
     url: 'https://anilist.co/user/pewf/animelist',
     name: 'AniList',
-    logoSrc: '/anilist-icon.png',
+    logoSrc: aniListIcon,
   },
   {
     url: 'https://ko-fi.com/pewfy',
     name: 'Ko-fi',
-    logoSrc: '/kofi.png',
+    logoSrc: kofiIcon,
   },
   {
     url: 'https://paypal.me/pewf',
     name: 'Paypal',
-    logoSrc: '/paypal-icon.webp',
+    logoSrc: paypalIcon,
   },
 ]
 
