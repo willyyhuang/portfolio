@@ -91,7 +91,7 @@ const Carousel = <T,>({items, containerHeight, itemRenderer, itemHeight}: Carous
   }
 
   const bind = useDrag(({down, movement: [mx]}) => {
-    if (down) {
+    if (down && mx > 0) {
       handleScroll(undefined, mx)
     }
   })
