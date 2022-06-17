@@ -170,6 +170,7 @@ const Project = () => {
         padding: 16,
         boxShadow: '5px 5px',
         borderRadius: 10,
+        margin: 12,
       }}>
       <div>
         <Link href={item?.github} underline='none' target='_blank'>
