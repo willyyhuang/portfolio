@@ -10,11 +10,16 @@ import sessionTomeLogo from '@public/projects/sessionTomeLogo.png'
 import Image from 'next/image'
 import styled from 'styled-components'
 
+const StyledImageContainer = styled.div<{end?: boolean}>`
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+  text-align: ${(props) => props.end && 'end'};
+`
+
 const StyledImage = styled(Image)`
   border-radius: 10px;
-  @media only screen and (max-width: 400px) {
-    width: 100%;
-  }
 `
 
 type ProjectData = {
@@ -122,7 +127,11 @@ const StyledCaption = styled.div`
 `
 
 const Project = () => {
-  const getLogo = (project: ProjectData) => <StyledImage alt={project.title} src={project.logo} />
+  const getLogo = (project: ProjectData, end?: boolean) => (
+    <StyledImageContainer end={end}>
+      <StyledImage alt={project.title} src={project.logo} />
+    </StyledImageContainer>
+  )
 
   const getDescription = (project: ProjectData) => (
     <List>
@@ -201,8 +210,8 @@ const Project = () => {
       </Row>
       {projects.map((project, index) => (
         <Row container item xs={12} spacing={4} key={project.title} style={{marginBottom: 36}}>
-          <Grid item container xs={12} md={6} justifyContent='end'>
-            {index % 2 === 0 ? getLogo(project) : getDescription(project)}
+          <Grid item container xs={12} md={6}>
+            {index % 2 === 0 ? getLogo(project, true) : getDescription(project)}
           </Grid>
           <Grid item xs={12} md={6}>
             {index % 2 === 0 ? getDescription(project) : getLogo(project)}
