@@ -45,6 +45,12 @@ const CarouselItem = styled.div<{height?: string}>`
   width: 50%;
   vertical-align: middle;
 
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+
   img {
     -webkit-user-drag: none;
     -khtml-user-drag: none;
@@ -91,7 +97,7 @@ const Carousel = <T,>({items, containerHeight, itemRenderer, itemHeight}: Carous
   }
 
   const bind = useDrag(({down, movement: [mx]}) => {
-    if (down && mx > 0) {
+    if (down && mx !== 0) {
       handleScroll(undefined, mx)
     }
   })
