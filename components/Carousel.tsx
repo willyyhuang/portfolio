@@ -61,7 +61,7 @@ const CarouselItem = styled.div<{height?: string}>`
 `
 
 type CarouselPropType<T> = {
-  items: T[]
+  items: Array<T>
   containerHeight?: string
   itemHeight?: string
   itemRenderer: (item: T) => ReactNode

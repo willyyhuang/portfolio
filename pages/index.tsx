@@ -5,6 +5,7 @@ import {
   ListItem,
   ListItemAvatar,
   ListItemText,
+  Tooltip,
   Typography,
 } from '@mui/material'
 import coffee from '@public/coffee.png'
@@ -163,9 +164,11 @@ const About = () => (
           </ListItem>
           {learnings.map((skill) => (
             <ListItem key={skill.name}>
-              <ListItemAvatar>
-                <StyledImage src={skill.logo} width='50' height='50' alt={skill.name} />
-              </ListItemAvatar>
+              <Tooltip title={skill.name}>
+                <ListItemAvatar>
+                  <StyledImage src={skill.logo} width='50' height='50' alt={skill.name} />
+                </ListItemAvatar>
+              </Tooltip>
               <ListItemText>{skill.name}</ListItemText>
             </ListItem>
           ))}
@@ -181,9 +184,11 @@ const About = () => (
           </ListItem>
           {skills.map((skill) => (
             <ListItem key={skill.name}>
-              <ListItemAvatar>
-                <StyledImage src={skill.logo} width='50' height='50' alt={skill.name} />
-              </ListItemAvatar>
+              <Tooltip title={skill.name}>
+                <ListItemAvatar>
+                  <StyledImage src={skill.logo} width='50' height='50' alt={skill.name} />
+                </ListItemAvatar>
+              </Tooltip>
               <ListItemText>{skill.name}</ListItemText>
             </ListItem>
           ))}
