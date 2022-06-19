@@ -1,5 +1,7 @@
 import {Box, Button, Divider, Grid, Link as MuiLink, Modal, Typography} from '@mui/material'
+import osmoPic from '@public/osmo.png'
 import {saveAs} from 'file-saver'
+import Image from 'next/image'
 import Link from 'next/link'
 import {useState} from 'react'
 import styled from 'styled-components'
@@ -19,8 +21,6 @@ const StyledBox = styled(Box)`
 
 const StyledContactBox = styled(Box)`
   padding: 2rem 2rem;
-  border: 3px solid;
-  border-radius: 13px;
 `
 
 const Contact = () => {
@@ -30,19 +30,19 @@ const Contact = () => {
     <>
       <Grid container justifyContent='center' item xs={12}>
         <StyledContactBox>
-          <Grid container>
+          <Grid container spacing={1}>
             <Grid container justifyContent='center' item xs={12} style={{marginBottom: 12}}>
               <Typography style={{fontWeight: 600}} variant='h4'>
                 Contact
               </Typography>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={6} container justifyContent='end'>
               <Typography>Email</Typography>
             </Grid>
             <Grid item xs={6}>
               <Typography>wh@pewf.dev</Typography>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={6} container justifyContent='end'>
               <Typography>LinkedIn</Typography>
             </Grid>
             <Grid item xs={6}>
@@ -53,7 +53,7 @@ const Contact = () => {
                 wlsun
               </MuiLink>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={6} container justifyContent='end'>
               <Typography>Resume</Typography>
             </Grid>
             <Grid item xs={6}>
@@ -63,11 +63,14 @@ const Contact = () => {
                 Download
               </Typography>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={6} container justifyContent='end'>
               <Typography>Other links</Typography>
             </Grid>
             <Grid item xs={6}>
               <Link href='/Links'>My links</Link>
+            </Grid>
+            <Grid container justifyContent='center' style={{marginTop: 16}} item xs={12}>
+              <Image src={osmoPic} style={{borderRadius: 16}} />
             </Grid>
           </Grid>
         </StyledContactBox>
