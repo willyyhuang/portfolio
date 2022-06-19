@@ -71,6 +71,10 @@ const skills: SkillData[] = [
     name: 'Microsoft Azure',
     logo: '/skills/azureLogo.png',
   },
+  {
+    name: 'Latex/Overleaf',
+    logo: '/skills/overleafLogo.png',
+  },
 ]
 
 const learnings: SkillData[] = [
@@ -91,10 +95,6 @@ const learnings: SkillData[] = [
     logo: '/skills/expressjsLogo.png',
   },
   {
-    name: 'Latex/Overleaf',
-    logo: '/skills/overleafLogo.png',
-  },
-  {
     name: 'GraphQL',
     logo: '/skills/graphqlLogo.png',
   },
@@ -111,10 +111,10 @@ const About = () => (
       </Grid>
       <Grid item container xs={12} justifyContent='center'>
         <Typography>
-          I am a graduate at Concordia University in Software Engineering, mainly interested in
-          Front-end development (Web/Mobile), DevOps and project management. Other than those, I
-          have been actively learning various topics in artificial intelligence such as computer
-          vision and machine learning.
+          I graduated from Concordia University in Bachelor of Engineering (Software Engineering),
+          mainly interested in Front-end development (Web/Mobile), DevOps and project management.
+          Other than those, I have been actively learning various topics in artificial intelligence
+          such as computer vision and machine learning.
         </Typography>
       </Grid>
       <Grid item container xs={12} justifyContent='center'>
@@ -125,14 +125,15 @@ const About = () => (
       </Grid>
       <Grid item xs={6} style={{alignSelf: 'center'}}>
         <Typography>
-          I enjoy making latte or cappuccino every morning, have been actively learning latte art
-          since November 2021.
+          I enjoy making latte/flat white every morning, I have been learning how to make better
+          latte art and pour better shots of espresso since November 2021.
         </Typography>
       </Grid>
       <Grid item xs={6} style={{alignSelf: 'center'}}>
         <Typography>
-          I enjoy watching korean dramas and animes when I am not coding. Traveling, fashion and
-          playing video games are also some of my favorite pastimes.
+          When I am not coding, I enjoy visiting restaurants, cafes and dessert places. I also enjoy
+          watching shows on the television, cooking, listening to music, driving and playing video
+          games
         </Typography>
       </Grid>
       <Grid item xs={6} style={{alignSelf: 'center'}}>
@@ -144,8 +145,8 @@ const About = () => (
       <Grid item xs={6} style={{alignSelf: 'center'}}>
         <Typography>
           Keyboards are essential tools for developers, here is one of the keyboard I made from
-          scratch (more or less), the parts are bought from a group buy, then it is assembled with
-          soldered switches and custom keycaps.
+          scratch, the parts are bought from a group buy, then it is assembled with soldered
+          switches and custom keycaps.
         </Typography>
       </Grid>
     </Grid>

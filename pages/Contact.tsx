@@ -1,4 +1,4 @@
-import {Box, Button, Divider, Grid, Modal, Typography} from '@mui/material'
+import {Box, Button, Divider, Grid, Link as MuiLink, Modal, Typography} from '@mui/material'
 import {saveAs} from 'file-saver'
 import Link from 'next/link'
 import {useState} from 'react'
@@ -33,7 +33,7 @@ const Contact = () => {
           <Grid container>
             <Grid container justifyContent='center' item xs={12} style={{marginBottom: 12}}>
               <Typography style={{fontWeight: 600}} variant='h4'>
-                Contact me
+                Contact
               </Typography>
             </Grid>
             <Grid item xs={6}>
@@ -46,18 +46,22 @@ const Contact = () => {
               <Typography>LinkedIn</Typography>
             </Grid>
             <Grid item xs={6}>
-              <Link href='https://www.linkedin.com/in/wlsun/'>wlsun</Link>
+              <MuiLink
+                href='https://www.linkedin.com/in/wlsun/'
+                target='_blank'
+                style={{color: '#0096d6', textDecoration: 'none'}}>
+                wlsun
+              </MuiLink>
             </Grid>
             <Grid item xs={6}>
               <Typography>Resume</Typography>
             </Grid>
             <Grid item xs={6}>
-              <Button
-                color='info'
-                onClick={() => setIsModalOpen(true)}
-                sx={{padding: 0, textTransform: 'none', fontWeight: 1000}}>
+              <Typography
+                style={{cursor: 'pointer', color: '#0096d6'}}
+                onClick={() => setIsModalOpen(true)}>
                 Download
-              </Button>
+              </Typography>
             </Grid>
             <Grid item xs={6}>
               <Typography>Other links</Typography>
