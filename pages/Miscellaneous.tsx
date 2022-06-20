@@ -8,6 +8,7 @@ import {
   FormGroup,
   Grid,
   MenuItem,
+  Modal,
   Select,
   Switch,
   Typography,
@@ -30,6 +31,15 @@ const StyledIcon = styled(RefreshIcon)`
   vertical-align: middle;
   margin: 6px;
   cursor: pointer;
+`
+
+const ModalContainer = styled.div`
+  position: absolute;
+  max-width: 50vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 `
 
 export const getStaticProps = async () => {
@@ -67,6 +77,8 @@ export const getStaticProps = async () => {
 
 const Miscellaneous = ({animeGirlProgramming}: any) => {
   const [isCarousel, setIsCarousel] = useState<boolean>(true)
+  const [isImageModalOpen, setIsImageModalOpen] = useState<boolean>(false)
+  const [modalImageSrc, setModalImageSrc] = useState<string>()
 
   const {
     entries,
@@ -78,11 +90,22 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
   } = useAnimeGirlProgrammingBook(animeGirlProgramming)
 
   const handleItemRender = (item: string) => (
-    <img src={item} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+    <div
+      onClick={() => {
+        setIsImageModalOpen(true)
+        setModalImageSrc(item)
+      }}>
+      <img src={item} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+    </div>
   )
 
   return (
     <Grid container rowSpacing={4}>
+      <Modal open={isImageModalOpen} onClose={() => setIsImageModalOpen(false)}>
+        <ModalContainer>
+          <img src={modalImageSrc} style={{width: '100%'}} />
+        </ModalContainer>
+      </Modal>
       <ProtectedLayer />
       <Grid item xs={12}>
         <Divider orientation='horizontal' />
@@ -136,7 +159,13 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
             justifyContent='center'
             onClick={refreshImage}
             sx={{cursor: 'pointer'}}>
-            <StyledImg src={currentImage} />
+            <StyledImg
+              src={currentImage}
+              onClick={() => {
+                setIsImageModalOpen(true)
+                setModalImageSrc(currentImage)
+              }}
+            />
           </Grid>
         )
       )}
