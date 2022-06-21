@@ -18,7 +18,7 @@ const useAnimeGirlProgrammingBook = (animeGirlProgramming: any) => {
       const files = entries ? entries.map((file: {path: string}) => {
         let filePath: string = file.path
         if (file.path.includes('#')) {
-          filePath = file.path.replaceAll('#', '%23')
+          filePath = file.path.replace(/#/g, '%23')
         }
         return rawImageUrlPrefix.concat(filePath)
       }) : []
