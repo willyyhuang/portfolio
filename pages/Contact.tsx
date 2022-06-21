@@ -72,6 +72,23 @@ const Contact = () => {
             <Grid container justifyContent='center' style={{marginTop: 16}} item xs={12}>
               <Image src={osmoPic} style={{borderRadius: 16}} />
             </Grid>
+            <Grid item xs={12} container justifyContent='center' style={{marginTop: 32}}>
+              <Typography variant='h5'>Commissions</Typography>
+            </Grid>
+            <Grid item xs={12} container justifyContent='center'>
+              <div>
+                I am opened to do freelance projects, here are some services I can provide:
+                <ul>
+                  <li>Static website building</li>
+                  <li>Computer assembling</li>
+                  <li>Keyboard building</li>
+                </ul>
+              </div>
+            </Grid>
+            <Grid item xs={12} container justifyContent='center'>
+              Please reach out to me via email if you are interested in any of the services I
+              provide.
+            </Grid>
           </Grid>
         </StyledContactBox>
       </Grid>
