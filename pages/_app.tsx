@@ -3,14 +3,13 @@ import '@styles/globals.css'
 import {ApolloProvider} from '@apollo/client'
 import Layout from '@components/Layout'
 import {CacheProvider} from '@emotion/react'
-import {ThemeProvider} from '@mui/material'
+import {GlobalStyles, ThemeProvider} from '@mui/material'
 import CssBaseline from '@mui/material/CssBaseline'
 import createEmotionCache from '@styles/createEmotionCache'
 import theme from '@styles/theme'
+import {client} from 'ApolloClient'
 import {AppProps} from 'next/app'
 import Head from 'next/head'
-
-import {client} from '../ApolloClient'
 
 const clientSideEmotionCache = createEmotionCache()
 const MyApp = ({
@@ -32,6 +31,21 @@ const MyApp = ({
     </Head>
     <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
+        <GlobalStyles
+          styles={{
+            '*::-webkit-scrollbar': {
+              width: '0.4em',
+              height: '0.4em',
+            },
+            '*::-webkit-scrollbar-thumb': {
+              backgroundColor: '#babac0',
+              borderRadius: 16,
+            },
+            '*::-webkit-scrollbar-button': {
+              display: 'none',
+            },
+          }}
+        />
         <CssBaseline />
         <Layout>
           <Component {...pageProps} />

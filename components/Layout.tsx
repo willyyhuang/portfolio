@@ -14,12 +14,12 @@ import Router from 'next/router'
 import {ReactNode, useState} from 'react'
 import styled from 'styled-components'
 
-const StyledHeader = styled(Grid)`
+const Header = styled(Grid)`
   padding: 5vh 0px 5vh 0px;
   text-align: center;
 `
 
-const StyledContent = styled.div`
+const Content = styled.div`
   @media only screen and (max-width: 768px) {
     width: 90%;
   }
@@ -41,11 +41,11 @@ const AnimatedContent = styled.div`
   }
 `
 
-const LayoutWrapper = styled.div`
+const Container = styled.div`
   min-height: 90vh;
 `
 
-const StyledFooter = styled.div`
+const Footer = styled.div`
   margin-top: 5vh;
 `
 
@@ -65,8 +65,8 @@ const Layout = ({children}: LayoutProps) => {
   Router.events.on('routeChangeError', () => setIsLoading(false))
 
   return (
-    <LayoutWrapper>
-      <StyledHeader container justifyContent='center'>
+    <Container>
+      <Header container justifyContent='center'>
         <Grid item xs={12} md={4}>
           <Image
             alt='logo'
@@ -101,14 +101,14 @@ const Layout = ({children}: LayoutProps) => {
             <Button startIcon={<ContactPageIcon />}>Contact</Button>
           </Link>
         </Grid>
-      </StyledHeader>
-      <StyledContent>
+      </Header>
+      <Content>
         <Grid container justifyContent='center'>
           {loading && <CircularProgress />}
           {!loading && <AnimatedContent>{children}</AnimatedContent>}
         </Grid>
-      </StyledContent>
-      <StyledFooter>
+      </Content>
+      <Footer>
         <Grid item xs={12} container justifyContent='center'>
           <IconLink href='https://www.linkedin.com/in/wlsun/' target='_blank'>
             <LinkedInIcon />
@@ -123,8 +123,8 @@ const Layout = ({children}: LayoutProps) => {
             <EmailIcon />
           </IconLink>
         </Grid>
-      </StyledFooter>
-    </LayoutWrapper>
+      </Footer>
+    </Container>
   )
 }
 

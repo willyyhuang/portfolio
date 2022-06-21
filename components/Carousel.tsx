@@ -13,17 +13,7 @@ const CarouselContainer = styled.div<{height?: string}>`
   overflow-y: hidden;
   text-align: center;
   cursor: grab;
-  ::-webkit-scrollbar {
-    width: 2px;
-    height: 8px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #babac0;
-    border-radius: 16px;
-  }
-  ::-webkit-scrollbar-button {
-    display: none;
-  }
+
   @media only screen and (max-width: 400px) {
     height: 100%;
     width: 100%;

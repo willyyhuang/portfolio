@@ -21,28 +21,6 @@ const theme = createTheme({
       },
       mode: 'dark',
     },
-    components: {
-      MuiPaper: {
-        styleOverrides: {
-          root: {
-            '::-webkit-scrollbar': {
-              backgroundColor: '#0B1622',
-              width: 8,
-            },
-            '::-webkit-scrollbar-track': {
-              backgroundColor: '#0B1622',
-            },
-            '::-webkit-scrollbar-thumb': {
-              backgroundColor: '#babac0',
-              borderRadius: 16
-            },
-            '::-webkit-scrollbar-button': {
-              display: 'none'
-            }
-          }
-        },
-      },
-    }
   })
 
   export default theme
