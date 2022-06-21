@@ -1,9 +1,7 @@
 import {gql} from '@apollo/client'
 import Carousel from '@components/Carousel'
-import ProtectedLayer from '@components/ProtectedLayer'
 import RefreshIcon from '@mui/icons-material/Refresh'
 import {
-  Divider,
   FormControlLabel,
   FormGroup,
   Grid,
@@ -17,10 +15,10 @@ import useAnimeGirlProgrammingBook from '@utils/useAnimeGirlProgrammingBook'
 import {useState} from 'react'
 import styled from 'styled-components'
 
-import {client} from '../ApolloClient'
+import {client} from '../../ApolloClient'
 
 const StyledSelect = styled(Select)`
-  width: 50%;
+  min-width: 300px;
 `
 
 const StyledImg = styled.img`
@@ -75,7 +73,7 @@ export const getStaticProps = async () => {
   }
 }
 
-const Miscellaneous = ({animeGirlProgramming}: any) => {
+const ProgrammingBook = ({animeGirlProgramming}: any) => {
   const [isCarousel, setIsCarousel] = useState<boolean>(true)
   const [isImageModalOpen, setIsImageModalOpen] = useState<boolean>(false)
   const [modalImageSrc, setModalImageSrc] = useState<string>()
@@ -106,14 +104,10 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
           <img src={modalImageSrc} style={{width: '100%'}} />
         </ModalContainer>
       </Modal>
-      <ProtectedLayer />
-      <Grid item xs={12}>
-        <Divider orientation='horizontal' />
-      </Grid>
       <Grid item container xs={12} justifyContent='center'>
         <Typography>Select your favorite programming language!</Typography>
       </Grid>
-      <Grid item xs={8} container justifyContent='end'>
+      <Grid item xs={12} container justifyContent='center'>
         <StyledSelect
           size='small'
           MenuProps={{
@@ -129,8 +123,6 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
               value={entry.folderName}>{`${entry.folderName} (${entry.files?.length})`}</MenuItem>
           ))}
         </StyledSelect>
-      </Grid>
-      <Grid item xs={4}>
         {!isCarousel && <StyledIcon onClick={refreshImage} />}
       </Grid>
       <Grid item container xs={12} justifyContent='center'>
@@ -173,5 +165,5 @@ const Miscellaneous = ({animeGirlProgramming}: any) => {
   )
 }
 
-Miscellaneous.displayName = 'Miscellaneous'
-export default Miscellaneous
+ProgrammingBook.displayName = 'ProgrammingBook'
+export default ProgrammingBook
