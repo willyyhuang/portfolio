@@ -18,7 +18,7 @@ const Miscellaneous = () => (
       <li>
         <Link href='/Miscellaneous/ProgrammingBook'>Anime girl programming books</Link>
         <Description>
-          Display images from this{' '}
+          Display anime girl holding programming books images from this{' '}
           <a
             href='https://github.com/cat-milk/Anime-Girls-Holding-Programming-Books'
             target='_blank'

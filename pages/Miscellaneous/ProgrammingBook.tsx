@@ -13,10 +13,9 @@ import {
   Typography,
 } from '@mui/material'
 import useAnimeGirlProgrammingBook from '@utils/useAnimeGirlProgrammingBook'
+import {client} from 'ApolloClient'
 import {useState} from 'react'
 import styled from 'styled-components'
-
-import {client} from '../../ApolloClient'
 
 const StyledSelect = styled(Select)`
   min-width: 300px;
@@ -152,13 +151,7 @@ const ProgrammingBook = ({animeGirlProgramming}: any) => {
         </Grid>
       ) : (
         currentImage && (
-          <Grid
-            item
-            container
-            xs={12}
-            justifyContent='center'
-            onClick={refreshImage}
-            sx={{cursor: 'pointer'}}>
+          <Grid item container xs={12} justifyContent='center' sx={{cursor: 'pointer'}}>
             <StyledImg
               src={currentImage}
               onClick={() => {
