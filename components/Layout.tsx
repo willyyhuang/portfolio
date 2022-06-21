@@ -6,20 +6,12 @@ import InstagramIcon from '@mui/icons-material/Instagram'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import PersonIcon from '@mui/icons-material/Person'
 import ShuffleIcon from '@mui/icons-material/Shuffle'
-import {
-  Button,
-  CircularProgress,
-  Grid,
-  Link as MuiLink,
-  Menu,
-  MenuItem,
-  Typography,
-} from '@mui/material'
+import {Button, CircularProgress, Grid, Link as MuiLink} from '@mui/material'
 import {hexEncode} from '@utils/index'
 import Image from 'next/image'
 import Link from 'next/link'
-import Router, {useRouter} from 'next/router'
-import {ReactNode, useEffect, useState} from 'react'
+import Router from 'next/router'
+import {ReactNode, useState} from 'react'
 import styled from 'styled-components'
 
 const StyledHeader = styled(Grid)`
@@ -49,10 +41,6 @@ const AnimatedContent = styled.div`
   }
 `
 
-const StyledLink = styled(Link)`
-  color: #ffffff;
-`
-
 const LayoutWrapper = styled.div`
   min-height: 90vh;
 `
@@ -71,15 +59,6 @@ type LayoutProps = {
 
 const Layout = ({children}: LayoutProps) => {
   const [loading, setIsLoading] = useState<boolean>(false)
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
-  const resetAnchorEl = () => {
-    setAnchorEl(null)
-  }
-  const router = useRouter()
-
-  useEffect(() => {
-    resetAnchorEl()
-  }, [router.pathname])
 
   Router.events.on('routeChangeStart', () => setIsLoading(true))
   Router.events.on('routeChangeComplete', () => setIsLoading(false))
@@ -113,21 +92,9 @@ const Layout = ({children}: LayoutProps) => {
           </Link>
         </Grid>
         <Grid item xs={12} md={1} justifyContent='center' container>
-          <Button onClick={(e) => setAnchorEl(e.currentTarget)} startIcon={<ShuffleIcon />}>
-            Miscellaneous
-          </Button>
-          <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={resetAnchorEl}>
-            <MenuItem>
-              <StyledLink href='/Miscellaneous/ProgrammingBook'>
-                <Typography>Programming books</Typography>
-              </StyledLink>
-            </MenuItem>
-            <MenuItem>
-              <StyledLink href='/Miscellaneous/Secret'>
-                <Typography>Secret</Typography>
-              </StyledLink>
-            </MenuItem>
-          </Menu>
+          <Link href='/Miscellaneous'>
+            <Button startIcon={<ShuffleIcon />}>Miscellaneous</Button>
+          </Link>
         </Grid>
         <Grid item xs={12} md={1} justifyContent='center' container>
           <Link href='/Contact'>

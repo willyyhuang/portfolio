@@ -9,6 +9,7 @@ import {
   Modal,
   Select,
   Switch,
+  Tooltip,
   Typography,
 } from '@mui/material'
 import useAnimeGirlProgrammingBook from '@utils/useAnimeGirlProgrammingBook'
@@ -105,7 +106,7 @@ const ProgrammingBook = ({animeGirlProgramming}: any) => {
         </ModalContainer>
       </Modal>
       <Grid item container xs={12} justifyContent='center'>
-        <Typography>Select your favorite programming language!</Typography>
+        <Typography>Select a category!</Typography>
       </Grid>
       <Grid item xs={12} container justifyContent='center'>
         <StyledSelect
@@ -123,7 +124,11 @@ const ProgrammingBook = ({animeGirlProgramming}: any) => {
               value={entry.folderName}>{`${entry.folderName} (${entry.files?.length})`}</MenuItem>
           ))}
         </StyledSelect>
-        {!isCarousel && <StyledIcon onClick={refreshImage} />}
+        {!isCarousel && (
+          <Tooltip title='click this to refresh image!'>
+            <StyledIcon onClick={refreshImage} />
+          </Tooltip>
+        )}
       </Grid>
       <Grid item container xs={12} justifyContent='center'>
         <FormGroup>
@@ -137,6 +142,9 @@ const ProgrammingBook = ({animeGirlProgramming}: any) => {
             }
           />
         </FormGroup>
+      </Grid>
+      <Grid item container xs={12} justifyContent='center'>
+        Click on the image to open a modal view
       </Grid>
       {isCarousel ? (
         <Grid item container xs={12} justifyContent='center'>
