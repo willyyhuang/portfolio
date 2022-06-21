@@ -113,7 +113,6 @@ const otherProjects: Array<OtherProjectData> = [
     title: 'Discord bot',
     description: 'A discord bot that responds to commands to output memes',
     techStack: 'Javascript, Discord API',
-    github: 'https://github.com/willyyhuang/discordbot',
   },
 ]
 
