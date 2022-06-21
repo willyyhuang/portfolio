@@ -1,4 +1,4 @@
-import {ReactNode, useEffect, useRef} from 'react'
+import {ReactNode, useRef} from 'react'
 import {useDrag} from 'react-use-gesture'
 import styled from 'styled-components'
 
@@ -91,10 +91,6 @@ const Carousel = <T,>({items, containerHeight, itemRenderer, itemHeight}: Carous
       handleScroll(undefined, mx)
     }
   })
-
-  useEffect(() => {
-    handleScroll('middle')
-  }, [])
 
   if (items.length === 0) return null
 
