@@ -15,7 +15,13 @@ const useAnimeGirlProgrammingBook = (animeGirlProgramming: any) => {
 
     const formattedData = animeGirlProgramming?.repository?.object?.entries.map((folder: any) => {
       const {entries} = folder.object
-      const files = entries ? entries.map((file: {path: string}) => rawImageUrlPrefix.concat(file.path.replaceAll('#', '%23'))) : []
+      const files = entries ? entries.map((file: {path: string}) => {
+        let filePath: string = file.path
+        if (file.path.includes('#')) {
+          filePath = file.path.replaceAll('#', '%23')
+        }
+        return rawImageUrlPrefix.concat(filePath)
+      }) : []
       return {
         folderName: folder.name,
         files,
