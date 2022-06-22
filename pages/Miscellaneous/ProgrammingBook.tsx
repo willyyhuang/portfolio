@@ -1,12 +1,12 @@
 import {gql} from '@apollo/client'
 import Carousel from '@components/Carousel'
+import ImageModal from '@components/ImageModal'
 import RefreshIcon from '@mui/icons-material/Refresh'
 import {
   FormControlLabel,
   FormGroup,
   Grid,
   MenuItem,
-  Modal,
   Select,
   Switch,
   Tooltip,
@@ -21,23 +21,10 @@ const StyledSelect = styled(Select)`
   min-width: 300px;
 `
 
-const StyledImg = styled.img`
-  max-width: 60vw;
-`
-
 const StyledIcon = styled(RefreshIcon)`
   vertical-align: middle;
   margin: 6px;
   cursor: pointer;
-`
-
-const ModalContainer = styled.div`
-  position: absolute;
-  max-width: 50vw;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
 `
 
 export const getStaticProps = async () => {
@@ -75,8 +62,6 @@ export const getStaticProps = async () => {
 
 const ProgrammingBook = ({animeGirlProgramming}: any) => {
   const [isCarousel, setIsCarousel] = useState<boolean>(true)
-  const [isImageModalOpen, setIsImageModalOpen] = useState<boolean>(false)
-  const [modalImageSrc, setModalImageSrc] = useState<string>()
 
   const {
     entries,
@@ -88,22 +73,11 @@ const ProgrammingBook = ({animeGirlProgramming}: any) => {
   } = useAnimeGirlProgrammingBook(animeGirlProgramming)
 
   const handleItemRender = (item: string) => (
-    <div
-      onClick={() => {
-        setIsImageModalOpen(true)
-        setModalImageSrc(item)
-      }}>
-      <img src={item} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
-    </div>
+    <ImageModal src={item} isExternal style={{width: '100%', height: '100%', objectFit: 'cover'}} />
   )
 
   return (
     <Grid container rowSpacing={4}>
-      <Modal open={isImageModalOpen} onClose={() => setIsImageModalOpen(false)}>
-        <ModalContainer>
-          <img src={modalImageSrc} style={{width: '100%'}} />
-        </ModalContainer>
-      </Modal>
       <Grid item container xs={12} justifyContent='center'>
         <Typography>Select a category!</Typography>
       </Grid>
@@ -152,13 +126,7 @@ const ProgrammingBook = ({animeGirlProgramming}: any) => {
       ) : (
         currentImage && (
           <Grid item container xs={12} justifyContent='center' sx={{cursor: 'pointer'}}>
-            <StyledImg
-              src={currentImage}
-              onClick={() => {
-                setIsImageModalOpen(true)
-                setModalImageSrc(currentImage)
-              }}
-            />
+            <ImageModal src={currentImage} isExternal style={{maxWidth: '60vw'}} />
           </Grid>
         )
       )}
