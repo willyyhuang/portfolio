@@ -18,7 +18,8 @@ const ModalContainer = styled.div`
   text-align: center;
 
   @media only screen and (max-width: 400px) {
-    max-width: 80vw;
+    width: 100%;
+    max-width: 90vw;
   }
 `
 
