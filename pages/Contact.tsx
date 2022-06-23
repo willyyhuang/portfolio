@@ -1,6 +1,5 @@
 import {Box, Button, Divider, Grid, Link as MuiLink, Modal, Typography} from '@mui/material'
 import osmoPic from '@public/osmo.png'
-import {saveAs} from 'file-saver'
 import Image from 'next/image'
 import Link from 'next/link'
 import {useState} from 'react'
@@ -130,7 +129,7 @@ const Contact = () => {
                   fullWidth
                   color='info'
                   onClick={() => {
-                    saveAs('/cv.pdf')
+                    window.open('/cv.pdf', '_blank')
                     setIsModalOpen(false)
                   }}>
                   Accept
