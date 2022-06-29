@@ -79,6 +79,10 @@ const skills: SkillData[] = [
 
 const learnings: SkillData[] = [
   {
+    name: 'Firebase',
+    logo: '/skills/firebaseLogo.png',
+  },
+  {
     name: 'Docker',
     logo: '/skills/dockerLogo.png',
   },
