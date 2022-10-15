@@ -3,6 +3,7 @@ import ComputerIcon from '@mui/icons-material/Computer'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import WorkIcon from '@mui/icons-material/Work'
 import {Grid, Link, List, ListItem, ListItemAvatar, ListItemText, Typography} from '@mui/material'
+import awsLogo from '@public/projects/aws-logo.jpeg'
 import bstkLogo from '@public/projects/bstk-logo.png'
 import cyclioLogo from '@public/projects/cyclio.png'
 import mochiLogo from '@public/projects/mochi-banner.png'
@@ -35,6 +36,15 @@ type ProjectData = {
 type OtherProjectData = Omit<ProjectData, 'logo' | 'role' | 'dimensions' | 'link'>
 
 const projects: Array<ProjectData> = [
+  {
+    title: 'Amazon Web Services',
+    link: 'https://aws.amazon.com/',
+    description:
+      'Amazon Web Services offers reliable, scalable, and inexpensive cloud computing services. Free to join, pay only for what you use.',
+    techStack: 'React, Typescript, GraphQL',
+    role: 'Front End Engineer',
+    logo: awsLogo,
+  },
   {
     title: 'Building Stack',
     link: 'https://www.buildingstack.com/',
