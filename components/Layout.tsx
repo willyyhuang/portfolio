@@ -93,7 +93,7 @@ const Layout = ({children}: LayoutProps) => {
         </Grid>
         <Grid item xs={12} md={1} justifyContent='center' container>
           <Link href='/Miscellaneous'>
-            <Button startIcon={<ShuffleIcon />}>Miscellaneous</Button>
+            <Button startIcon={<ShuffleIcon />}>Misc</Button>
           </Link>
         </Grid>
         <Grid item xs={12} md={1} justifyContent='center' container>
