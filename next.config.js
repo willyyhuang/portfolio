@@ -1,14 +1,13 @@
-const withPWA = require('next-pwa')
+/* eslint-disable @typescript-eslint/no-var-requires */
 
-const prod = process.env.NODE_ENV === 'production'
-
-module.exports = withPWA({
-  pwa: {
-    dest: 'public',
-    register: true,
-    skipWaiting: true,
-    disable: !prod,
-  },
-  reactStrictMode: true,
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  disable: process.env.NODE_ENV === 'development',
 })
+
+module.exports = () => {
+  const plugins = [withPWA]
+  const config = plugins.reduce((acc, next) => next(acc))
+  return config
+}
 
