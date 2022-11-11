@@ -55,11 +55,6 @@ const Miscellaneous = () => {
       title: 'Hobby logs',
       listItems: [
         {
-          href: '/Miscellaneous/GameClips',
-          title: 'Game clips',
-          description: 'Video game clips',
-        },
-        {
           href: '/Miscellaneous/Keyboards',
           title: 'Keyboards',
           description: 'My custom keyboards',
