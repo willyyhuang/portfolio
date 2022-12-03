@@ -110,7 +110,7 @@ const About = () => (
       <Grid item container xs={12} justifyContent='center'>
         <Typography>
           Hi! Welcome to my portfolio website! I am Wilson, a Software Engineer specialized in
-          Front-end development based in Montreal, Quebec, Canada.
+          Front-end development based in Toronto, Ontario, Canada.
         </Typography>
       </Grid>
       <Grid item container xs={12} justifyContent='center'>
