@@ -5,7 +5,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         return res.status(401).json({message: 'Invalid token'})
     }
     try {
-        await res.unstable_revalidate('/Miscellaneous/ProgrammingBook')
+        await res.revalidate('/Miscellaneous/ProgrammingBook')
         return res.json({revalidated: true})
       } catch (err) {
         // If there was an error, Next.js will continue

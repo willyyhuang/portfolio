@@ -55,7 +55,7 @@ const ProtectedLayer = () => {
           <Grid container>
             <Grid item xs={12} container justifyContent='center' style={{marginBottom: 32}}>
               <Avatar>
-                <Image src='/logo.png' width='50' height='50' />
+                <Image src='/logo.png' width='50' height='50' alt='logo' />
               </Avatar>
             </Grid>
             <Grid item xs={12}>
