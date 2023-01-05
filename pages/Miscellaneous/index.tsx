@@ -51,16 +51,6 @@ const Miscellaneous = () => {
         },
       ],
     },
-    {
-      title: 'Hobby logs',
-      listItems: [
-        {
-          href: '/Miscellaneous/Keyboards',
-          title: 'Keyboards',
-          description: 'My custom keyboards',
-        },
-      ],
-    },
   ]
   return (
     <Container>

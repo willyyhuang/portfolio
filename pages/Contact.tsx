@@ -69,7 +69,7 @@ const Contact = () => {
               <Link href='/Links'>My links</Link>
             </Grid>
             <Grid container justifyContent='center' style={{marginTop: 16}} item xs={12}>
-              <Image src={osmoPic} style={{borderRadius: 16}} />
+              <Image src={osmoPic} style={{borderRadius: 16}} alt='osmo-pic' />
             </Grid>
             <Grid item xs={12} container justifyContent='center' style={{marginTop: 32}}>
               <Typography variant='h5'>Commissions</Typography>

@@ -29,11 +29,19 @@ const ImageModal = ({src, isExternal, style}: ImageModalProps) => {
     <>
       <Modal open={isImageModalOpen} onClose={() => setIsImageModalOpen(false)}>
         <ModalContainer>
-          {isExternal ? <img src={src} style={{width: '100%'}} /> : <Image src={src} />}
+          {isExternal ? (
+            <img src={src} style={{width: '100%'}} />
+          ) : (
+            <Image src={src} alt='img-content' />
+          )}
         </ModalContainer>
       </Modal>
       <div onClick={() => setIsImageModalOpen(true)}>
-        {isExternal ? <img src={src} style={style} /> : <Image src={src} style={style} />}
+        {isExternal ? (
+          <img src={src} style={style} />
+        ) : (
+          <Image src={src} style={style} alt='img-content' />
+        )}
       </div>
     </>
   )

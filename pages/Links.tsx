@@ -70,7 +70,13 @@ const Links = () => (
               marginBottom: '16px',
             }}>
             <div style={{marginRight: 16, display: 'flex'}}>
-              <Image src={link.logoSrc} width={40} height={40} style={{borderRadius: 16}} />
+              <Image
+                src={link.logoSrc}
+                width={40}
+                height={40}
+                style={{borderRadius: 16}}
+                alt={`${link.name}-logo`}
+              />
             </div>
             {link.name}
           </Button>
