@@ -1,6 +1,6 @@
 import {Box, Button, Divider, Grid, Link as MuiLink, Modal, Typography} from '@mui/material'
 import osmoPic from '@public/osmo.png'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import {useState} from 'react'
 import styled from 'styled-components'

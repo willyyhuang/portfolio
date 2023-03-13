@@ -11,7 +11,7 @@ import {
 import coffee from '@public/coffee.png'
 import keyboard from '@public/keyboard.png'
 import livia from '@public/livia.png'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import styled from 'styled-components'
 
 const StyledImage = styled(Image)`

@@ -8,7 +8,7 @@ import bstkLogo from '@public/projects/bstk-logo.png'
 import cyclioLogo from '@public/projects/cyclio.png'
 import mochiLogo from '@public/projects/mochi-banner.png'
 import sessionTomeLogo from '@public/projects/sessionTomeLogo.png'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import styled from 'styled-components'
 
 const StyledImageContainer = styled.div<{end?: boolean}>`

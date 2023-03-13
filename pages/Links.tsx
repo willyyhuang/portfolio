@@ -3,7 +3,7 @@ import amazonIcon from '@public/links/amazon-icon.png'
 import aniListIcon from '@public/links/anilist-icon.png'
 import kofiIcon from '@public/links/kofi.png'
 import paypalIcon from '@public/links/paypal-icon.webp'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import styled from 'styled-components'
 
 const StyledLink = styled.a`
